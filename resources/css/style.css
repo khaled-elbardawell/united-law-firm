@@ -185,7 +185,7 @@ img {
     color: #b0bfd4;
 }
 
-/* SVG Icon Base Styling */
+/* Icon Base Styling */
 .svg-icon svg {
     width: 1em;
     height: 1em;
@@ -196,6 +196,16 @@ img {
     stroke-linejoin: round;
     vertical-align: middle;
     display: inline-block;
+}
+
+.svg-icon i,
+.service-icon i,
+.ticket-header-icon i {
+    width: 1em;
+    height: 1em;
+    display: inline-grid;
+    place-items: center;
+    line-height: 1;
 }
 
 /* Custom Text Selection Styling */
@@ -1571,7 +1581,7 @@ textarea:focus {
 }
 
 .office-frame::after {
-    content: "مكتب المتحدة — غزة";
+    content: attr(data-label);
     position: absolute;
     bottom: 28px;
     right: 28px;
@@ -1679,6 +1689,7 @@ textarea:focus {
 /* Styled Map Box Mockup */
 .map-box {
     height: 300px;
+    width: 100%;
     border-radius: var(--radius-lg);
     background: linear-gradient(135deg, var(--primary-navy) 0%, #152c42 100%);
     color: var(--text-light);
@@ -1690,6 +1701,12 @@ textarea:focus {
     position: relative;
     overflow: hidden;
     border: 1.5px solid var(--border-gold-soft);
+}
+
+iframe.map-box {
+    display: block;
+    padding: 0;
+    background: #fff;
 }
 
 .map-box::before {

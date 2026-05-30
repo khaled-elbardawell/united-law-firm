@@ -80,7 +80,7 @@ class ServiceController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255', 'unique:services,slug,'.($service?->id ?? 'NULL')],
-            'icon' => ['nullable', 'string', 'max:80'],
+            'icon' => ['nullable', 'string', 'max:140'],
             'summary' => ['required', 'string', 'max:1000'],
             'description' => ['nullable', 'string'],
             'sort_order' => ['nullable', 'integer', 'min:0'],

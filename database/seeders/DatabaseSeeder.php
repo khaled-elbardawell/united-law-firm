@@ -6,6 +6,7 @@ use App\Models\Faq;
 use App\Models\Lawyer;
 use App\Models\SeoSetting;
 use App\Models\Service;
+use App\Models\SiteSetting;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -24,9 +25,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         foreach ([
-            ['title' => 'القضايا التجارية', 'summary' => 'حلول قانونية للشركات والعقود والنزاعات التجارية.', 'sort_order' => 1],
-            ['title' => 'القضايا المدنية', 'summary' => 'تمثيل قانوني في التعويضات والعقارات والمطالبات المالية.', 'sort_order' => 2],
-            ['title' => 'الأحوال الشخصية', 'summary' => 'رعاية دقيقة لقضايا الأسرة والطلاق والنفقة والحضانة والميراث.', 'sort_order' => 3],
+            ['title' => 'القضايا التجارية', 'summary' => 'حلول قانونية للشركات والعقود والنزاعات التجارية.', 'icon' => 'fa-solid fa-briefcase', 'sort_order' => 1],
+            ['title' => 'القضايا المدنية', 'summary' => 'تمثيل قانوني في التعويضات والعقارات والمطالبات المالية.', 'icon' => 'fa-solid fa-scale-balanced', 'sort_order' => 2],
+            ['title' => 'الأحوال الشخصية', 'summary' => 'رعاية دقيقة لقضايا الأسرة والطلاق والنفقة والحضانة والميراث.', 'icon' => 'fa-solid fa-people-roof', 'sort_order' => 3],
         ] as $service) {
             Service::firstOrCreate(
                 ['title' => $service['title']],
@@ -63,5 +64,6 @@ class DatabaseSeeder extends Seeder
                 'keywords' => 'محامي, استشارات قانونية, مكتب محاماة',
             ]);
         }
+        SiteSetting::ensureDefaults();
     }
 }
