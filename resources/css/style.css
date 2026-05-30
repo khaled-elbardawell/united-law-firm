@@ -916,6 +916,16 @@ img {
     transition: var(--transition-smooth);
 }
 
+.lawyer-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition-smooth);
+}
+
 .lawyer-body {
     padding: 28px 24px;
 }
@@ -979,6 +989,10 @@ img {
 
 .lawyer-card:hover .lawyer-top .svg-icon {
     transform: scale(1.08);
+}
+
+.lawyer-card:hover .lawyer-top img {
+    transform: scale(1.04);
 }
 
 /* ========================================================================

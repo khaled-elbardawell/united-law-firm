@@ -48,7 +48,7 @@ class LawyerController extends Controller
 
     public function update(Request $request, Lawyer $lawyer)
     {
-        $lawyer->update($this->validated($request));
+        $lawyer->update($this->validated($request, $lawyer));
 
         return redirect()->route('admin.lawyers.index')->with('success', 'تم تحديث بيانات المحامي.');
     }
@@ -74,7 +74,7 @@ class LawyerController extends Controller
         return back()->with('success', 'تم حذف المحامي نهائياً.');
     }
 
-    private function validated(Request $request): array
+    private function validated(Request $request, ?Lawyer $lawyer = null): array
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -84,10 +84,23 @@ class LawyerController extends Controller
             'tags' => ['nullable', 'string', 'max:500'],
             'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:80'],
-            'photo' => ['nullable', 'string', 'max:255'],
+            'photo_file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_active' => ['nullable', 'boolean'],
+        ], [
+            'photo_file.image' => 'ملف صورة المحامي يجب أن يكون صورة.',
+            'photo_file.mimes' => 'صيغة الصورة يجب أن تكون JPG أو PNG أو WEBP.',
+            'photo_file.max' => 'حجم صورة المحامي يجب ألا يتجاوز 2MB.',
         ]);
+
+        if ($request->hasFile('photo_file')) {
+            $path = $request->file('photo_file')->store('lawyers', 'public');
+            $data['photo'] = 'storage/'.$path;
+        } elseif ($lawyer?->photo) {
+            $data['photo'] = $lawyer->photo;
+        }
+
+        unset($data['photo_file']);
 
         $data['tags'] = collect(explode(',', $data['tags'] ?? ''))
             ->map(fn ($tag) => trim($tag))
