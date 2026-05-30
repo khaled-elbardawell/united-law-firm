@@ -2198,6 +2198,42 @@ textarea:focus {
     background-color: #fffbfa !important;
 }
 
+.site-alert {
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    margin-bottom: 22px;
+    border: 1.5px solid transparent;
+    box-shadow: var(--shadow-soft);
+}
+
+.site-alert strong {
+    display: block;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.site-alert p,
+.site-alert ul {
+    margin: 0;
+    color: inherit;
+}
+
+.site-alert ul {
+    padding-inline-start: 20px;
+}
+
+.site-alert--success {
+    color: #075f3c;
+    background: #edfdf4;
+    border-color: #a9efc5;
+}
+
+.site-alert--error {
+    color: #9b1c13;
+    background: #fff4f2;
+    border-color: #f3b8b1;
+}
+
 .success-backdrop {
     position: fixed;
     inset: 0;

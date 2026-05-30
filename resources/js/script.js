@@ -240,6 +240,11 @@ function initFormWizard() {
       return;
     }
 
+    if (form.getAttribute('action')) {
+      HTMLFormElement.prototype.submit.call(form);
+      return;
+    }
+
     // Premium dynamic Success Alert Modal
     const fullNameVal = document.getElementById('fullName')?.value || 'عزيزنا العميل';
     
