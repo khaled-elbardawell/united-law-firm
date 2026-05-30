@@ -759,6 +759,87 @@ img {
     transform: scale(1.06) rotate(-2deg);
 }
 
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    gap: 28px;
+    align-items: start;
+}
+
+.service-detail-card,
+.service-cta-card,
+.service-related-card {
+    background: var(--bg-paper);
+    border: 1.5px solid var(--border-gold-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: clamp(24px, 4vw, 36px);
+}
+
+.service-detail-icon {
+    width: 86px;
+    height: 86px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+    color: var(--primary-navy);
+    font-size: 2.25rem;
+}
+
+.service-detail-card h2,
+.service-cta-card h3,
+.service-related-card h3 {
+    color: var(--primary-navy);
+    margin-bottom: 14px;
+}
+
+.service-detail-content {
+    color: var(--text-muted);
+    line-height: 2;
+    font-size: 1.04rem;
+}
+
+.service-detail-side {
+    display: grid;
+    gap: 18px;
+    position: sticky;
+    top: calc(var(--header-height) + 22px);
+}
+
+.service-cta-card p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.service-cta-card .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.service-related-card {
+    display: grid;
+    gap: 10px;
+}
+
+.service-related-card a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--border-gold-soft);
+    border-radius: var(--radius-md);
+    color: var(--primary-navy);
+    font-weight: 800;
+    background: #fff;
+}
+
+.service-related-card i {
+    color: var(--accent-gold);
+}
+
 .service-card h3 {
     font-size: 1.35rem;
     font-weight: 800;
@@ -2058,9 +2139,14 @@ iframe.map-box {
 
     /* Grid Reductions */
     .services-grid,
+    .service-detail-grid,
     .lawyers-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+    }
+
+    .service-detail-side {
+        position: static;
     }
 
     .feature-grid,
@@ -2205,6 +2291,7 @@ iframe.map-box {
 
     /* Card Grid to 1 Column */
     .services-grid,
+    .service-detail-grid,
     .lawyers-grid,
     .feature-grid,
     .values {

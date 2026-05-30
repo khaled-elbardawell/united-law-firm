@@ -43,6 +43,22 @@ Route::get('/services', function () {
     ]);
 })->name('services');
 
+Route::get('/services/{slug}', function (string $slug) {
+    abort_unless(Schema::hasTable('services'), 404);
+
+    $service = Service::where('slug', $slug)
+        ->where('is_active', true)
+        ->firstOrFail();
+
+    $relatedServices = Service::where('is_active', true)
+        ->whereKeyNot($service->id)
+        ->orderBy('sort_order')
+        ->take(3)
+        ->get();
+
+    return view('website.service-show', compact('service', 'relatedServices'));
+})->name('services.show');
+
 Route::get('/lawyers', function () {
     return view('website.lawyers', [
         'lawyers' => Schema::hasTable('lawyers')
