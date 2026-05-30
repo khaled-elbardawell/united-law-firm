@@ -1,128 +1,328 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>المتحدة | الرئيسية</title><link rel="stylesheet" href="style.css"></head><body class="page-home">
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Best Practices -->
+  <title>المتحدة للمحاماة والاستشارات القانونية | الرئيسية</title>
+  <meta name="description" content="مكتب المتحدة للمحاماة والاستشارات القانونية يقدم حلولاً قانونية راقية للأفراد والشركات بخبرة عالية وسرية تامة واهتمام بأدق التفاصيل.">
+  <meta name="keywords" content="محامي غزة، المتحدة للمحاماة، استشارات قانونية، قضايا تجارية، قضايا جنائية، تحكيم عقود">
+  <meta name="author" content="المتحدة للمحاماة">
+  
+  <!-- Premium Fonts & CSS Links -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-home">
 
-<header class="site-header site-header--hero">
-  <div class="container nav-wrap nav-wrap--home">
-    <a href="index.html" class="brand">
-      <img src="assets/logo.jpeg" alt="المتحدة">
-      <div>
-        <strong>المتحدة</strong>
-        <span>للمحاماة والاستشارات القانونية</span>
-      </div>
-    </a>
-    <nav class="nav-links nav-links--center">
-      <a class="active" href="index.html">الرئيسية</a>
-      <a href="about.html">عن المكتب</a>
-      <a href="services.html">خدماتنا</a>
-      <a href="faq.html">الأسئلة الشائعة</a>
-      <a href="contact.html">اتصل بنا</a>
-    </nav>
-    <a class="nav-ticket nav-ticket--solo" href="ticket.html"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v16H4Z"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/></svg></span> احجز استشارة</a>
-    <button class="menu-btn" aria-label="القائمة">☰</button>
-  </div>
-</header>
+  <!-- ========================================== -->
+  <!-- Laravel Blade layout template hint:        -->
+  <!-- This header will be in partials.header     -->
+  <!-- ========================================== -->
+  
+  <!-- Site Header (Header Component) -->
+  <header class="site-header site-header--hero" id="siteHeader">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand" id="brandLogo">
+        <img src="assets/logo.jpeg" alt="مكتب المتحدة للمحاماة">
+        <div>
+          <strong>المتحدة</strong>
+          <span>للمحاماة والاستشارات القانونية</span>
+        </div>
+      </a>
+      
+      <!-- Unified Navigation Links -->
+      <nav class="nav-links" id="mainNav">
+        <a class="active" href="index.html">الرئيسية</a>
+        <a href="about.html">عن المكتب</a>
+        <a href="services.html">خدماتنا</a>
+        <a href="lawyers.html">المحامون</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a class="nav-ticket" href="ticket.html">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v16H4Z"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/></svg>
+          </span> 
+          احجز استشارة
+        </a>
+      </nav>
+      
+      <button class="menu-btn" aria-label="القائمة" aria-expanded="false" id="menuToggle">☰</button>
+    </div>
+  </header>
 
-<section class="hero hero--home">
-  <div class="hero--home-body">
-    <div class="container">
-      <div class="hero-content">
-        <h1>نحمي حقوقك <span>ونحقق العدالة</span></h1>
-        <p>نقدم استشارات قانونية وحلولًا فعّالة لحماية مصالحك وتحقيق أفضل النتائج في مختلف القضايا.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold btn-hero-main" href="ticket.html">احجز استشارة <span class="btn-arrow">←</span></a>
-          <a class="btn btn-outline btn-hero-secondary" href="services.html"><span class="btn-arrow">→</span> تعرف على خدماتنا</a>
+  <!-- Main Content wrapper -->
+  <main id="mainContent">
+    
+    <!-- Hero Block -->
+    <section class="hero hero--home" id="homeHero">
+      <div class="hero--home-body">
+        <div class="container">
+          <div class="hero-content">
+            <h1>نحمي حقوقك <span>ونحقق العدالة</span></h1>
+            <p>نقدم استشارات قانونية وحلولاً فعّالة لحماية مصالحك وتحقيق أفضل النتائج في مختلف القضايا بخبرة مهنية راسخة.</p>
+            <div class="hero-actions">
+              <a class="btn btn-gold btn-hero-main" href="ticket.html">
+                احجز استشارة <span class="btn-arrow">←</span>
+              </a>
+              <a class="btn btn-outline btn-hero-secondary" href="services.html">
+                تعرف على خدماتنا <span class="btn-arrow">→</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="hero-card hero-card--home">
-    <div class="stat">
-      <span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M19 8a3 3 0 0 1 2 5"/><path d="M3 13a3 3 0 0 1 2-5"/></svg></span>
-      <strong>1000+</strong>
-      <span>قضية ناجحة</span>
-    </div>
-    <div class="stat">
-      <span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 6h14"/><path d="M6 6 3 13h6Z"/><path d="M18 6l-3 7h6Z"/><path d="M7 21h10"/></svg></span>
-      <strong>15+</strong>
-      <span>سنة من الخبرة</span>
-    </div>
-    <div class="stat">
-      <span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
-      <strong>20+</strong>
-      <span>محامي متخصص</span>
-    </div>
-    <div class="stat">
-      <span class="svg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-1.5 8 5-3 5 3-1.5-8"/></svg></span>
-      <strong>98%</strong>
-      <span>نسبة النجاح</span>
-    </div>
-  </div>
-</section>
+      
+      <!-- Premium Stats Bar -->
+      <div class="hero-card hero-card--home" id="homeStats">
+        <div class="stat">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M19 8a3 3 0 0 1 2 5"/><path d="M3 13a3 3 0 0 1 2-5"/></svg>
+          </span>
+          <strong>1000+</strong>
+          <span>قضية ناجحة</span>
+        </div>
+        <div class="stat">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 6h14"/><path d="M6 6 3 13h6Z"/><path d="M18 6l-3 7h6Z"/><path d="M7 21h10"/></svg>
+          </span>
+          <strong>15+</strong>
+          <span>سنة من الخبرة</span>
+        </div>
+        <div class="stat">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>
+          </span>
+          <strong>20+</strong>
+          <span>محامٍ متخصص</span>
+        </div>
+        <div class="stat">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-1.5 8 5-3 5 3-1.5-8"/></svg>
+          </span>
+          <strong>98%</strong>
+          <span>نسبة النجاح</span>
+        </div>
+      </div>
+    </section>
 
-<section class="section section-services-home">
-  <div class="container">
-    <div class="sec-head">
-      <div class="kicker">خدماتنا القانونية</div>
-      <h2>حلول قانونية متكاملة لمختلف احتياجاتك</h2>
-      <p>نقدم مجموعة واسعة من الخدمات القانونية المتخصصة لمساعدة الأفراد والشركات في حماية حقوقهم وتحقيق أهدافهم.</p>
-    </div>
-    <div class="services-grid services-grid--home">
-      <article class="service-card service-card--home">
-        <div class="service-icon"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 6h14"/><path d="M6 6 3 13h6Z"/><path d="M18 6l-3 7h6Z"/><path d="M7 21h10"/></svg></span></div>
-        <h3>القضايا التجارية</h3>
-        <p>حلول قانونية متكاملة للشركات، العقود، الشراكات، والنزاعات التجارية.</p>
-      </article>
-      <article class="service-card service-card--home">
-        <div class="service-icon"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M19 8a3 3 0 0 1 2 5"/><path d="M3 13a3 3 0 0 1 2-5"/></svg></span></div>
-        <h3>القضايا المدنية</h3>
-        <p>تمثيل قانوني احترافي في التعويضات، المطالبات، والالتزامات المدنية.</p>
-      </article>
-      <article class="service-card service-card--home">
-        <div class="service-icon"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="m14 5 5 5"/><path d="m6 13 5 5"/><path d="m8 11 6-6 5 5-6 6Z"/><path d="m2 22 7-7"/><path d="M14 22H4"/></svg></span></div>
-        <h3>القضايا الجنائية</h3>
-        <p>دفاع قانوني قوي واستراتيجية واضحة في مختلف القضايا الجنائية.</p>
-      </article>
-      <article class="service-card service-card--home">
-        <div class="service-icon"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span></div>
-        <h3>قضايا الأحوال الشخصية</h3>
-        <p>معالجة دقيقة لقضايا الأسرة، الزواج، الطلاق، النفقة، الحضانة، والميراث.</p>
-      </article>
-      <article class="service-card service-card--home">
-        <div class="service-icon"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M7 12 4 9l4-4 4 4"/><path d="m17 12 3-3-4-4-4 4"/><path d="m8 13 3 3a2 2 0 0 0 3 0l2-2"/><path d="m12 9 4 4 1-1"/><path d="m7 12 4-3"/></svg></span></div>
-        <h3>التحكيم وتسوية النزاعات</h3>
-        <p>حلول ودية وتحكيمية لتقليل المخاطر والوقت والتكاليف.</p>
-      </article>
-      <article class="service-card service-card--home">
-        <div class="service-icon"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span></div>
-        <h3>الاستشارات القانونية</h3>
-        <p>استشارات قانونية وصياغة ومراجعة عقود بوضوح ودقة عالية.</p>
-      </article>
-    </div>
-  </div>
-</section>
+    <!-- Services Overview Section -->
+    <section class="section section-soft" id="homeServices">
+      <div class="container">
+        <div class="sec-head">
+          <div class="kicker">خدماتنا القانونية</div>
+          <h2>حلول قانونية متكاملة لمختلف احتياجاتك</h2>
+          <p>نقدم مجموعة واسعة من الخدمات القانونية المتخصصة لمساعدة الأفراد والشركات في حماية حقوقهم وتحقيق أهدافهم بأعلى كفاءة.</p>
+        </div>
+        
+        <div class="services-grid services-grid--home">
+          <article class="service-card service-card--home">
+            <div class="service-icon">
+              <span class="svg-icon">
+                <svg viewBox="0 0 24 24"><path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 13h18"/><path d="M12 12v2"/></svg>
+              </span>
+            </div>
+            <h3>القضايا التجارية</h3>
+            <p>حلول قانونية متكاملة للشركات، العقود، الشراكات، وتأسيس وتصفية الشركات والنزاعات التجارية.</p>
+            <a href="services.html">تفاصيل الخدمة <span>←</span></a>
+          </article>
+          
+          <article class="service-card service-card--home">
+            <div class="service-icon">
+              <span class="svg-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M19 8a3 3 0 0 1 2 5"/><path d="M3 13a3 3 0 0 1 2-5"/></svg>
+              </span>
+            </div>
+            <h3>القضايا المدنية</h3>
+            <p>تمثيل قانوني احترافي في قضايا التعويضات، المطالبات المالية، وحماية الحقوق والالتزامات المدنية.</p>
+            <a href="services.html">تفاصيل الخدمة <span>←</span></a>
+          </article>
+          
+          <article class="service-card service-card--home">
+            <div class="service-icon">
+              <span class="svg-icon">
+                <svg viewBox="0 0 24 24"><path d="m14 5 5 5"/><path d="m6 13 5 5"/><path d="m8 11 6-6 5 5-6 6Z"/><path d="m2 22 7-7"/><path d="M14 22H4"/></svg>
+              </span>
+            </div>
+            <h3>القضايا الجنائية</h3>
+            <p>دفاع قانوني قوي واستراتيجية ترفع واضحة في مختلف القضايا الجنائية لضمان المحاكمة العادلة وحماية حقوقكم.</p>
+            <a href="services.html">تفاصيل الخدمة <span>←</span></a>
+          </article>
+          
+          <article class="service-card service-card--home">
+            <div class="service-icon">
+              <span class="svg-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>
+              </span>
+            </div>
+            <h3>قضايا الأحوال الشخصية</h3>
+            <p>معالجة دقيقة لقضايا الأسرة، الزواج، الطلاق، النفقة، الحضانة، والمواريث وفقًا للشريعة والقانون المعمول به.</p>
+            <a href="services.html">تفاصيل الخدمة <span>←</span></a>
+          </article>
+          
+          <article class="service-card service-card--home">
+            <div class="service-icon">
+              <span class="svg-icon">
+                <svg viewBox="0 0 24 24"><path d="M7 12 4 9l4-4 4 4"/><path d="m17 12 3-3-4-4-4 4"/><path d="m8 13 3 3a2 2 0 0 0 3 0l2-2"/><path d="m12 9 4 4 1-1"/><path d="m7 12 4-3"/></svg>
+              </span>
+            </div>
+            <h3>التحكيم وتسوية النزاعات</h3>
+            <p>حلول ودية وتحكيمية ممتازة لتقليل المخاطر والوقت والتكاليف الناتجة عن التقاضي والخصومات القضائية.</p>
+            <a href="services.html">تفاصيل الخدمة <span>←</span></a>
+          </article>
+          
+          <article class="service-card service-card--home">
+            <div class="service-icon">
+              <span class="svg-icon">
+                <svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+              </span>
+            </div>
+            <h3>الاستشارات وصياغة العقود</h3>
+            <p>صياغة ومراجعة العقود والاتفاقيات الدولية والمحلية بدقة قانونية متناهية تحمي مصالحك وتمنع النزاعات المستقبلية.</p>
+            <a href="services.html">تفاصيل الخدمة <span>←</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="section section-features-home">
-  <div class="container feature-grid">
-    <div class="feature"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/></svg></span><strong>سرية تامة</strong><p>حماية كاملة لجميع معلومات العملاء.</p></div>
-    <div class="feature"><span class="svg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-1.5 8 5-3 5 3-1.5-8"/></svg></span><strong>نتائج قوية</strong><p>نعمل باستراتيجية واضحة لكل قضية.</p></div>
-    <div class="feature"><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M19 8a3 3 0 0 1 2 5"/><path d="M3 13a3 3 0 0 1 2-5"/></svg></span><strong>فريق متخصص</strong><p>محامون بخبرة متنوعة وعميقة.</p></div>
-    <div class="feature"><span class="svg-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg></span><strong>متابعة مستمرة</strong><p>تواصل واضح ومتابعة لكل خطوة.</p></div>
-  </div>
-</section>
+    <!-- Features / Key Strengths Section -->
+    <section class="section" id="homeFeatures">
+      <div class="container">
+        <div class="sec-head">
+          <div class="kicker">ميزات المكتب</div>
+          <h2>لماذا تختار مكتب المتحدة للمحاماة؟</h2>
+          <p>نعمل بمعايير مهنية صارمة ونقدم رعاية قانونية راقية لجميع عملائنا لضمان أعلى مستويات الرضا والنجاح.</p>
+        </div>
+        
+        <div class="feature-grid">
+          <div class="feature">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/></svg>
+            </span>
+            <strong>سرية تامة</strong>
+            <p>حماية كاملة وأمان مطلق لجميع معلومات وملفات عملائنا بسرية مهنية مقدسة.</p>
+          </div>
+          
+          <div class="feature">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="m8.5 12.5-1.5 8 5-3 5 3-1.5-8"/></svg>
+            </span>
+            <strong>نتائج قوية</strong>
+            <p>نعمل باستراتيجية مخصصة ودراسة تفصيلية لكل قضية لتحقيق أفضل النتائج القانونية الممكنة.</p>
+          </div>
+          
+          <div class="feature">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M19 8a3 3 0 0 1 2 5"/><path d="M3 13a3 3 0 0 1 2-5"/></svg>
+            </span>
+            <strong>فريق متخصص</strong>
+            <p>محامون ومستشارون بخبرة متنوعة وعميقة في مختلف فروع ومجالات القانون.</p>
+          </div>
+          
+          <div class="feature">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg>
+            </span>
+            <strong>متابعة مستمرة</strong>
+            <p>تواصل واضح وإرسال تقارير دورية لكل خطوة وتطور في ملفك القانوني بشكل مستمر.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="cta cta--home"><div class="container"><h2>قضيتك تستحق أفضل دفاع</h2><p>ابدأ الآن بحجز استشارة قانونية مع فريق المتحدة المتخصص.</p><a class="btn btn-gold btn-hero-main" href="ticket.html">احجز استشارة <span class="btn-arrow">←</span></a></div></section>
+    <!-- Call to Action (CTA) Section -->
+    <section class="cta" id="homeCta">
+      <div class="container">
+        <h2>قضيتك تستحق أفضل دفاع قانوني</h2>
+        <p>ابدأ الآن بحجز استشارة قانونية وسرية مع فريق المتحدة المتخصص لدراسة خياراتك واتخاذ الخطوات المناسبة.</p>
+        <a class="btn btn-gold btn-hero-main" href="ticket.html">
+          احجز استشارة الآن <span class="btn-arrow">←</span>
+        </a>
+      </div>
+    </section>
 
-<footer class="footer">
-  <div class="container footer-grid">
-    <div class="footer-about">
-      <div class="brand footer-brand"><img src="assets/logo.jpeg" alt=""><div><strong>المتحدة</strong><span>UNITED Legal Consultancy and Advocacy Firm</span></div></div>
-      <p>مكتب محاماة واستشارات قانونية يقدم حلولًا قانونية راقية للأفراد والشركات، بخبرة عالية وسرية تامة واهتمام بأدق التفاصيل.</p>
-      <div class="socials"><a>in</a><a>f</a><a>x</a><a>ig</a></div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- Laravel Blade layout template hint:        -->
+  <!-- This footer will be in partials.footer     -->
+  <!-- ========================================== -->
+  
+  <!-- Site Footer (Footer Component) -->
+  <footer class="footer" id="siteFooter">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="brand footer-brand">
+          <img src="assets/logo.jpeg" alt="شعار المتحدة للمحاماة">
+          <div>
+            <strong>المتحدة</strong>
+            <span>UNITED Legal Firm</span>
+          </div>
+        </a>
+        <p>مكتب محاماة واستشارات قانونية يقدم حلولًا قانونية راقية للأفراد والشركات، بخبرة عالية وسرية تامة واهتمام بأدق التفاصيل لحماية مصالح عملائنا.</p>
+        
+        <!-- Social Links -->
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="X (Twitter)">x</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>روابط سريعة</h4>
+        <a href="about.html">عن المكتب</a>
+        <a href="lawyers.html">المحامون</a>
+        <a href="services.html">خدماتنا</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+      </div>
+      
+      <!-- Services Categories -->
+      <div class="footer-links">
+        <h4>مجالات العمل</h4>
+        <a href="services.html">القضايا التجارية</a>
+        <a href="services.html">القضايا المدنية</a>
+        <a href="services.html">القضايا الجنائية</a>
+        <a href="services.html">التحكيم وتسوية النزاعات</a>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="footer-links">
+        <h4>تواصل معنا</h4>
+        <p class="footer-contact-item">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.8a2 2 0 0 1-.5 1.7L7.8 9.4a16 16 0 0 0 6.8 6.8l1.2-1.2a2 2 0 0 1 1.7-.5l2.8.4a2 2 0 0 1 1.7 2Z"/></svg>
+          </span>
+          +970 59 123 4567
+        </p>
+        <p class="footer-contact-item">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4Z"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          info@united-legal.com
+        </p>
+        <p class="footer-contact-item">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          فلسطين — غزة
+        </p>
+      </div>
     </div>
-    <div><h4>روابط سريعة</h4><a href="about.html">عن المكتب</a><a href="lawyers.html">المحامون</a><a href="services.html">خدماتنا</a><a href="faq.html">الأسئلة الشائعة</a></div>
-    <div><h4>مجالات العمل</h4><a>القضايا التجارية</a><a>القضايا المدنية</a><a>القضايا الجنائية</a><a>التحكيم وتسوية النزاعات</a></div>
-    <div><h4>تواصل معنا</h4><p><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.8a2 2 0 0 1-.5 1.7L7.8 9.4a16 16 0 0 0 6.8 6.8l1.2-1.2a2 2 0 0 1 1.7-.5l2.8.4a2 2 0 0 1 1.7 2Z"/></svg></span> +970 59 123 4567</p><p><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4Z"/><path d="m4 7 8 6 8-6"/></svg></span> info@united-legal.com</p><p><span class="svg-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span> فلسطين — غزة</p></div>
-  </div>
-  <div class="container copy">© 2026 المتحدة للمحاماة والاستشارات القانونية — جميع الحقوق محفوظة</div>
-</footer>
-<a href="https://wa.me/970591234567" class="float-whatsapp" aria-label="واتساب"></a>
-<script src="script.js"></script></body></html>
+    
+    <!-- Copy section -->
+    <div class="container copy" id="footerCopy">
+      © 2026 المتحدة للمحاماة والاستشارات القانونية — جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://wa.me/970591234567" class="float-whatsapp" aria-label="تواصل معنا عبر واتساب" target="_blank" rel="noopener">واتساب</a>
+
+  <!-- Core Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
