@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initFormWizard();
   initFileAttachments();
+  initScrollTopButton();
 });
 
 /**
@@ -297,4 +298,23 @@ function initFileAttachments() {
     const names = filesArray.map(file => file.name).join(' ، ');
     uploadHint.textContent = `تم اختيار (${filesArray.length}) ملفات: ${names}`;
   });
+}
+
+/**
+ * 7. Floating scroll-to-top button
+ */
+function initScrollTopButton() {
+  const button = document.querySelector('.scroll-top-button');
+  if (!button) return;
+
+  const toggleButton = () => {
+    button.classList.toggle('is-visible', window.scrollY > 360);
+  };
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', toggleButton, { passive: true });
+  toggleButton();
 }
