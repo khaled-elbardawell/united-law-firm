@@ -40,19 +40,46 @@ function initMobileMenu() {
 
   if (!menuBtn || !navLinks) return;
 
+  const closeDropdowns = () => {
+    navLinks.querySelectorAll('.nav-dropdown.is-open').forEach((dropdown) => {
+      dropdown.classList.remove('is-open');
+      dropdown.querySelector('button')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  const closeDrawer = () => {
+    navLinks.classList.remove('show');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.textContent = '☰';
+    closeDropdowns();
+  };
+
+  navLinks.querySelectorAll('.nav-dropdown > button').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      if (!window.matchMedia('(max-width: 1024px)').matches) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const dropdown = button.closest('.nav-dropdown');
+      const isOpen = dropdown.classList.toggle('is-open');
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
   // Toggle drawer state
   menuBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     const isExpanded = navLinks.classList.toggle('show');
     menuBtn.setAttribute('aria-expanded', isExpanded);
+    if (!isExpanded) closeDropdowns();
     menuBtn.textContent = isExpanded ? '✕' : '☰'; // Modern switch icon
   });
 
   // Close drawer if user clicks outside of the menu
   document.addEventListener('click', (e) => {
     if (navLinks.classList.contains('show') && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-      navLinks.classList.remove('show');
-      menuBtn.setAttribute('aria-expanded', 'false');
+      closeDrawer();
       menuBtn.textContent = '☰';
     }
   });

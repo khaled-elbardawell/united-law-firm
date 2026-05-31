@@ -3568,12 +3568,17 @@ iframe.map-box {
     .nav-dropdown-menu {
         position: static;
         min-width: 0;
+        display: none;
         opacity: 1;
         visibility: visible;
         transform: none;
         box-shadow: none;
         background: rgba(255, 255, 255, .06);
         margin-top: 8px;
+    }
+
+    .nav-dropdown.is-open .nav-dropdown-menu {
+        display: grid;
     }
 
     .nav-links > a.active:not(.nav-ticket)::after {
