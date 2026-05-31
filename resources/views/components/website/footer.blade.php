@@ -40,27 +40,37 @@
         </div>
 
         <div class="footer-links">
-            <h4>روابط سريعة</h4>
+            <h4>روابط الموقع</h4>
+            <a href="{{ route('home') }}">الرئيسية</a>
             <a href="{{ route('about') }}">عن المكتب</a>
-            <a href="{{ route('lawyers') }}">المحامون</a>
             <a href="{{ route('services') }}">خدماتنا</a>
+            <a href="{{ route('lawyers') }}">المحامون</a>
+            <a href="{{ route('legal-library.index') }}">المكتبة القانونية</a>
             <a href="{{ route('blog.index') }}">المدونة</a>
             <a href="{{ route('faq') }}">الأسئلة الشائعة</a>
+            <a href="{{ route('contact') }}">اتصل بنا</a>
         </div>
 
         <div class="footer-links">
-            <h4>مجالات العمل</h4>
-            <a href="{{ route('services') }}">القضايا التجارية</a>
-            <a href="{{ route('services') }}">القضايا المدنية</a>
-            <a href="{{ route('services') }}">القضايا الجنائية</a>
+            <h4>المكتبة والدورات</h4>
+            <a href="{{ route('legal-library.category', 'laws') }}">القوانين والقرارات القانونية</a>
+            <a href="{{ route('legal-library.category', 'judicial-decisions') }}">القرارات القضائية</a>
+            <a href="{{ route('training-courses.current') }}">الدورات التدريبية الجديدة</a>
+            <a href="{{ route('training-courses.past') }}">الدورات التدريبية السابقة</a>
             <a href="{{ route('ticket') }}">احجز استشارة</a>
         </div>
 
         <div class="footer-links">
             <h4>تواصل معنا</h4>
-            @if ($phone)<p class="footer-contact-item"><span class="svg-icon"><i class="fa-solid fa-phone"></i></span> <span dir="ltr">{{ $phone }}</span></p>@endif
-            @if ($email)<p class="footer-contact-item"><span class="svg-icon"><i class="fa-solid fa-envelope"></i></span> {{ $email }}</p>@endif
-            @if ($address)<p class="footer-contact-item"><span class="svg-icon"><i class="fa-solid fa-location-dot"></i></span> {{ $address }}</p>@endif
+            @if ($phone)
+                <p class="footer-contact-item"><span class="svg-icon"><i class="fa-solid fa-phone"></i></span> <span dir="ltr">{{ $phone }}</span></p>
+            @endif
+            @if ($email)
+                <p class="footer-contact-item"><span class="svg-icon"><i class="fa-solid fa-envelope"></i></span> {{ $email }}</p>
+            @endif
+            @if ($address)
+                <p class="footer-contact-item"><span class="svg-icon"><i class="fa-solid fa-location-dot"></i></span> {{ $address }}</p>
+            @endif
             <a href="{{ route('contact') }}">صفحة التواصل</a>
         </div>
     </div>

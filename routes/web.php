@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ContactRequestController as AdminContactRequestCo
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\LawyerController;
+use App\Http\Controllers\Admin\LegalLibraryItemController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Website\ConsultationController;
 use App\Http\Controllers\Website\BlogController;
 use App\Http\Controllers\Website\ContactRequestController;
+use App\Http\Controllers\Website\LegalLibraryController;
 use App\Http\Controllers\Website\TrainingCourseController;
 use App\Models\Faq;
 use App\Models\Client;
@@ -115,6 +117,15 @@ Route::get('/faq', function () {
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::get('/legal-library', [LegalLibraryController::class, 'index'])->name('legal-library.index');
+Route::get('/legal-library/search', [LegalLibraryController::class, 'search'])->name('legal-library.search');
+Route::get('/legal-library/{category}', [LegalLibraryController::class, 'category'])
+    ->whereIn('category', ['laws', 'judicial-decisions'])
+    ->name('legal-library.category');
+Route::get('/legal-library/{category}/{item}', [LegalLibraryController::class, 'show'])
+    ->whereIn('category', ['laws', 'judicial-decisions'])
+    ->name('legal-library.show');
+
 Route::get('/training-courses/new', [TrainingCourseController::class, 'current'])->name('training-courses.current');
 Route::get('/training-courses/previous', [TrainingCourseController::class, 'past'])->name('training-courses.past');
 Route::get('/training-courses/{course}', [TrainingCourseController::class, 'show'])->name('training-courses.show');
@@ -147,6 +158,11 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::put('training-courses/{training_course}/registrations/{registration}', [AdminTrainingCourseController::class, 'updateRegistration'])->name('training-courses.registrations.update');
     Route::put('training-courses/{training_course}/registrations/{registration}/attendance', [AdminTrainingCourseController::class, 'updateAttendance'])->name('training-courses.registrations.attendance');
     Route::resource('training-courses', AdminTrainingCourseController::class);
+    Route::patch('legal-library/{item}/restore', [LegalLibraryItemController::class, 'restore'])->name('legal-library.restore');
+    Route::delete('legal-library/{item}/force-delete', [LegalLibraryItemController::class, 'forceDelete'])->name('legal-library.force-delete');
+    Route::resource('legal-library', LegalLibraryItemController::class)
+        ->parameters(['legal-library' => 'legalLibrary'])
+        ->except('show');
     Route::patch('services/{service}/restore', [ServiceController::class, 'restore'])->name('services.restore');
     Route::delete('services/{service}/force-delete', [ServiceController::class, 'forceDelete'])->name('services.force-delete');
     Route::resource('services', ServiceController::class)->except('show');

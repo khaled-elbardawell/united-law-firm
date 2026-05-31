@@ -72,6 +72,9 @@
                 <a class="{{ request()->routeIs('admin.training-courses.*') ? 'active' : '' }}"
                     href="{{ route('admin.training-courses.index') }}">الدورات التدريبية <span><i
                             class="fa-solid fa-chalkboard-user"></i></span></a>
+                <a class="{{ request()->routeIs('admin.legal-library.*') ? 'active' : '' }}"
+                    href="{{ route('admin.legal-library.index') }}">المكتبة القانونية <span><i
+                            class="fa-solid fa-book-open"></i></span></a>
                 <a class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}"
                     href="{{ route('admin.users.index') }}">المستخدمون <span><i
                             class="fa-solid fa-users-gear"></i></span></a>

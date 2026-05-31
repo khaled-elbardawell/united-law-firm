@@ -27,6 +27,8 @@
                 href="{{ route('services') }}">{{ __('static.Services') }}</a>
             <a class="{{ request()->routeIs('lawyers*') ? 'active' : '' }}"
                 href="{{ route('lawyers') }}">{{ __('static.Lawyers') }}</a>
+            <a class="{{ request()->routeIs('legal-library.*') ? 'active' : '' }}"
+                href="{{ route('legal-library.index') }}">المكتبة القانونية</a>
             <div class="nav-dropdown {{ request()->routeIs('training-courses.*') ? 'active' : '' }}">
                 <button type="button" aria-haspopup="true" aria-expanded="false">
                     الدورات التدريبية <i class="fa-solid fa-chevron-down"></i>
@@ -38,8 +40,6 @@
             </div>
             {{-- <a class="{{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">{{ __('static.FAQ') }}</a> --}}
             <a class="{{ request()->routeIs('blog.*') ? 'active' : '' }}" href="{{ route('blog.index') }}">المدونة</a>
-            <a class="{{ request()->routeIs('contact') ? 'active' : '' }}"
-                href="{{ route('contact') }}">{{ __('static.Contact Us') }}</a>
             <a class="nav-ticket {{ request()->routeIs('ticket') ? 'active' : '' }}" href="{{ route('ticket') }}">
                 <span class="svg-icon">
                     <i class="fa-solid fa-calendar-check"></i>
