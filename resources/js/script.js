@@ -382,9 +382,7 @@ function initTrustedClientsSlider() {
     };
 
     const jumpToStart = () => {
-      const firstCard = cards[0];
-      if (!firstCard) return;
-      firstCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      track.scrollTo({ left: 0, behavior: 'smooth' });
     };
 
     let activePointerId = null;

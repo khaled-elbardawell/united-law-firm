@@ -52,6 +52,9 @@ class SiteSetting extends Model
             'cta_title' => ['value' => 'قضيتك تستحق أفضل دفاع قانوني', 'type' => 'text', 'group' => 'home', 'label' => 'عنوان الدعوة لاتخاذ إجراء'],
             'cta_description' => ['value' => 'ابدأ الآن بحجز استشارة قانونية وسرية مع فريق المتحدة المتخصص.', 'type' => 'textarea', 'group' => 'home', 'label' => 'وصف الدعوة لاتخاذ إجراء'],
 
+            'about_overview_title' => ['value' => 'خبرة قانونية راقية برؤية عصرية', 'type' => 'text', 'group' => 'about', 'label' => 'عنوان من نحن'],
+            'about_overview_description' => ['value' => "مكتب المتحدة للمحاماة والاستشارات القانونية يجمع بين الخبرة العملية، الدقة المتناهية، والالتزام الأخلاقي والمهني لتقديم حلول قانونية موثوقة تلبي كافة تطلعات الأفراد والشركات.\n\nنبدأ كل ملف بدراسة تفصيلية وفهم عميق للدوافع والملابسات، ثم نعمل على بناء استراتيجية قانونية واضحة تحفظ الحقوق، تقلل المخاطر، وتحقق أفضل نتيجة ممكنة للعميل بسرية تامة.", 'type' => 'textarea', 'group' => 'about', 'label' => 'وصف من نحن'],
+
             'stat_cases_value' => ['value' => '1000+', 'type' => 'text', 'group' => 'stats', 'label' => 'عدد القضايا'],
             'stat_cases_label' => ['value' => 'قضية ناجحة', 'type' => 'text', 'group' => 'stats', 'label' => 'وصف عدد القضايا'],
             'stat_experience_value' => ['value' => '15+', 'type' => 'text', 'group' => 'stats', 'label' => 'سنوات الخبرة'],

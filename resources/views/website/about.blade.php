@@ -31,16 +31,11 @@
         <div class="container about-grid">
             <div>
                 <div class="kicker">من نحن</div>
-                <h2 class="title">خبرة قانونية راقية برؤية عصرية</h2>
-                <p class="muted" style="margin-bottom: 18px;">مكتب المتحدة للمحاماة والاستشارات القانونية يجمع بين
-                    الخبرة
-                    العملية، الدقة المتناهية، والالتزام الأخلاقي والمهني لتقديم حلول قانونية موثوقة تلبي كافة تطلعات
-                    الأفراد
-                    والشركات.</p>
-                <p class="muted" style="margin-bottom: 24px;">نبدأ كل ملف بدراسة تفصيلية وفهم عميق للدوافع والملابسات،
-                    ثم نعمل
-                    على بناء استراتيجية قانونية واضحة تحفظ الحقوق، تقلل المخاطر، وتحقق أفضل نتيجة ممكنة للعميل بسرية
-                    تامة.</p>
+                <h2 class="title">{{ $setting('about_overview_title', 'خبرة قانونية راقية برؤية عصرية') }}</h2>
+                @foreach (preg_split('/\R{2,}/u', trim((string) $setting('about_overview_description', ''))) as $paragraph)
+                    @continue(trim($paragraph) === '')
+                    <p class="muted" style="margin-bottom: {{ $loop->last ? '24px' : '18px' }};">{{ $paragraph }}</p>
+                @endforeach
 
                 <div class="about-stats">
                     <div class="about-stat">
