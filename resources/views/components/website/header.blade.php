@@ -21,6 +21,7 @@
             <a class="{{ request()->routeIs('services') ? 'active' : '' }}" href="{{ route('services') }}">{{ __('static.Services') }}</a>
             <a class="{{ request()->routeIs('lawyers') ? 'active' : '' }}" href="{{ route('lawyers') }}">{{ __('static.Lawyers') }}</a>
             <a class="{{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">{{ __('static.FAQ') }}</a>
+            <a class="{{ request()->routeIs('blog.*') ? 'active' : '' }}" href="{{ route('blog.index') }}">المدونة</a>
             <a class="{{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">{{ __('static.Contact Us') }}</a>
             <a class="nav-ticket {{ request()->routeIs('ticket') ? 'active' : '' }}" href="{{ route('ticket') }}">
                 <span class="svg-icon">

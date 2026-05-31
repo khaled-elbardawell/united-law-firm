@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" href="{{ asset('assets/logo.png') }}" sizes="32x32" />
     @php
         $routeKey = request()->route()?->getName();
         $seo = null;
@@ -18,7 +19,7 @@
         $whatsappDigits = preg_replace('/\D+/', '', (string) $whatsapp);
     @endphp
 
-    <title>{{ $seo?->title ?: ($title ?? $siteName) }}</title>
+    <title>{{ $seo?->title ?: $title ?? $siteName }}</title>
     @if ($seo)
         <meta name="description" content="{{ $seo->description }}">
         <meta name="keywords" content="{{ $seo->keywords }}">
@@ -38,7 +39,8 @@
         <meta name="author" content="{{ $seoAuthor }}">
     @endif
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     @vite(['resources/css/app.css', 'resources/css/style.css'])
     {!! $css ?? '' !!}
@@ -53,7 +55,8 @@
 
     <x-website.footer />
     @if ($whatsappDigits)
-        <a href="https://wa.me/{{ $whatsappDigits }}" class="float-whatsapp" aria-label="تواصل معنا عبر واتساب" target="_blank" rel="noopener">واتساب</a>
+        <a href="https://wa.me/{{ $whatsappDigits }}" class="float-whatsapp" aria-label="تواصل معنا عبر واتساب"
+            target="_blank" rel="noopener">واتساب</a>
     @endif
     <button class="scroll-top-button" type="button" aria-label="العودة إلى أعلى الصفحة">
         <i class="fa-solid fa-arrow-up"></i>
@@ -62,4 +65,5 @@
     @vite(['resources/js/app.js', 'resources/js/script.js'])
     {!! $js ?? '' !!}
 </body>
+
 </html>

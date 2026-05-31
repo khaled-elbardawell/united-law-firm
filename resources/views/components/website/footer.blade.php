@@ -44,6 +44,7 @@
             <a href="{{ route('about') }}">عن المكتب</a>
             <a href="{{ route('lawyers') }}">المحامون</a>
             <a href="{{ route('services') }}">خدماتنا</a>
+            <a href="{{ route('blog.index') }}">المدونة</a>
             <a href="{{ route('faq') }}">الأسئلة الشائعة</a>
         </div>
 
