@@ -7,7 +7,7 @@
     <title>{{ $title ?? 'لوحة التحكم' }} - {{ config('app.name') }}</title>
     <link rel="icon" href="{{ asset('assets/logo.png') }}" sizes="32x32" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     @vite(['resources/css/admin.css'])
 </head>

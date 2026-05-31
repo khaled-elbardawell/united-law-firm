@@ -21,7 +21,7 @@ body.auth-body {
     margin: 0;
     direction: rtl;
     text-align: right;
-    font-family: "Tajawal", Tahoma, Arial, sans-serif;
+    font-family: "Cairo", Tahoma, Arial, sans-serif;
     background: var(--admin-cream);
     color: var(--admin-text);
 }
@@ -419,10 +419,9 @@ a.stat-card:hover {
 
 .admin-filters {
     display: grid;
-    grid-template-columns: minmax(220px, 1fr) repeat(
-            2,
-            minmax(150px, auto)
-        ) auto auto;
+    grid-template-columns:
+        minmax(220px, 1fr) repeat(2, minmax(150px, auto))
+        auto auto;
     gap: 10px;
     align-items: center;
     margin-bottom: 16px;
