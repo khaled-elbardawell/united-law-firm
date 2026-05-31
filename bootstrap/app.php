@@ -12,6 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) : void  {
         $middleware->redirectUsersTo('/admin');
+        $middleware->alias([
+            'admin.permission' => \App\Http\Middleware\EnsureAdminPermission::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

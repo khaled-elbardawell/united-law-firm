@@ -124,7 +124,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::IkMMNzJ5LHUYchn4',
+            '_route' => 'generated::XOmtCYgC1dHVIxcq',
           ),
           1 => NULL,
           2 => 
@@ -1121,6 +1121,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/roles' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/roles/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/admin/seo' => 
       array (
         0 => 
@@ -1144,7 +1200,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/s(?|ervices/([^/]++)(*:28)|torage/(.*)(?|(*:49)))|/l(?|awyers/([^/]++)(*:78)|egal\\-library/(?|(laws|judicial-decisions)(*:127)|(laws|judicial-decisions)/([^/]++)(*:169)))|/blog/([^/]++)(*:193)|/training\\-courses/([^/]++)(?|(*:231)|/register(*:248))|/admin/(?|blog\\-(?|posts/([^/]++)(?|/(?|restore(*:304)|force\\-delete(*:325)|edit(*:337))|(*:346))|categories/([^/]++)(?|/(?|restore(*:388)|force\\-delete(*:409)|edit(*:421))|(*:430))|tags/([^/]++)(?|/(?|restore(*:466)|force\\-delete(*:487)|edit(*:499))|(*:508)))|c(?|lients/([^/]++)(?|/(?|restore(*:551)|force\\-delete(*:572)|edit(*:584))|(*:593))|on(?|tact\\-requests/([^/]++)(?|/(?|restore(*:644)|force\\-delete(*:665))|(*:674))|sultations/([^/]++)(?|/(?|restore(*:716)|force\\-delete(*:737))|(*:746))))|training\\-courses/([^/]++)(?|/(?|re(?|store(*:800)|gistrations/([^/]++)(?|(*:831)|/attendance(*:850)))|force\\-delete(*:873)|edit(*:885))|(*:894))|l(?|egal\\-library/([^/]++)(?|/(?|restore(*:943)|force\\-delete(*:964)|edit(*:976))|(*:985))|awyers/([^/]++)(?|/(?|restore(*:1023)|force\\-delete(*:1045)|edit(*:1058))|(*:1068)))|se(?|rvices/([^/]++)(?|/(?|restore(*:1113)|force\\-delete(*:1135)|edit(*:1148))|(*:1158))|o/([^/]++)(?|/edit(*:1186)|(*:1195)))|faqs/([^/]++)(?|/(?|restore(*:1233)|force\\-delete(*:1255)|edit(*:1268))|(*:1278))|users/([^/]++)(?|/(?|restore(*:1316)|force\\-delete(*:1338)|edit(*:1351))|(*:1361))))/?$}sDu',
+      0 => '{^(?|/s(?|ervices/([^/]++)(*:28)|torage/(.*)(?|(*:49)))|/l(?|awyers/([^/]++)(*:78)|egal\\-library/(?|(laws|judicial-decisions)(*:127)|(laws|judicial-decisions)/([^/]++)(*:169)))|/blog/([^/]++)(*:193)|/training\\-courses/([^/]++)(?|(*:231)|/register(*:248))|/admin/(?|blog\\-(?|posts/([^/]++)(?|/(?|restore(*:304)|force\\-delete(*:325)|edit(*:337))|(*:346))|categories/([^/]++)(?|/(?|restore(*:388)|force\\-delete(*:409)|edit(*:421))|(*:430))|tags/([^/]++)(?|/(?|restore(*:466)|force\\-delete(*:487)|edit(*:499))|(*:508)))|c(?|lients/([^/]++)(?|/(?|restore(*:551)|force\\-delete(*:572)|edit(*:584))|(*:593))|on(?|tact\\-requests/([^/]++)(?|/(?|restore(*:644)|force\\-delete(*:665))|(*:674))|sultations/([^/]++)(?|/(?|restore(*:716)|force\\-delete(*:737))|(*:746))))|training\\-courses/([^/]++)(?|/(?|re(?|store(*:800)|gistrations/([^/]++)(?|(*:831)|/attendance(*:850)))|force\\-delete(*:873)|edit(*:885))|(*:894))|l(?|egal\\-library/([^/]++)(?|/(?|restore(*:943)|force\\-delete(*:964)|edit(*:976))|(*:985))|awyers/([^/]++)(?|/(?|restore(*:1023)|force\\-delete(*:1045)|edit(*:1058))|(*:1068)))|se(?|rvices/([^/]++)(?|/(?|restore(*:1113)|force\\-delete(*:1135)|edit(*:1148))|(*:1158))|o/([^/]++)(?|/edit(*:1186)|(*:1195)))|faqs/([^/]++)(?|/(?|restore(*:1233)|force\\-delete(*:1255)|edit(*:1268))|(*:1278))|users/([^/]++)(?|/(?|restore(*:1316)|force\\-delete(*:1338)|edit(*:1351))|(*:1361))|roles/([^/]++)(?|/(?|restore(*:1399)|force\\-delete(*:1421)|edit(*:1434))|(*:1444))))/?$}sDu',
     ),
     3 => 
     array (
@@ -2763,6 +2819,115 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
+      ),
+      1399 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.restore',
+          ),
+          1 => 
+          array (
+            0 => 'role',
+          ),
+          2 => 
+          array (
+            'PATCH' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1421 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.force-delete',
+          ),
+          1 => 
+          array (
+            0 => 'role',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1434 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.edit',
+          ),
+          1 => 
+          array (
+            0 => 'role',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1444 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.update',
+          ),
+          1 => 
+          array (
+            0 => 'role',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.roles.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'role',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
         2 => 
         array (
           0 => NULL,
@@ -3011,7 +3176,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::IkMMNzJ5LHUYchn4' => 
+    'generated::XOmtCYgC1dHVIxcq' => 
     array (
       'methods' => 
       array (
@@ -3047,8 +3212,8 @@ app('router')->setCompiledRoutes(
                     return response(\\Illuminate\\Support\\Facades\\View::file(\'C:\\\\laragon\\\\www\\\\united-law-firm\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $status);
-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"000000000000059a0000000000000000";}}',
-        'as' => 'generated::IkMMNzJ5LHUYchn4',
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000006bf0000000000000000";}}',
+        'as' => 'generated::XOmtCYgC1dHVIxcq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3087,7 +3252,7 @@ app('router')->setCompiledRoutes(
             ? \\App\\Models\\Client::where(\'is_active\', true)->orderBy(\'sort_order\')->get()
             : \\collect(),
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000059e0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006c30000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3129,7 +3294,7 @@ app('router')->setCompiledRoutes(
             ? \\App\\Models\\Client::where(\'is_active\', true)->orderBy(\'sort_order\')->get()
             : \\collect(),
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005a00000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006c50000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3167,7 +3332,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:52:"function () {
     return \\view(\'website.contact\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005a20000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006c70000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3209,7 +3374,7 @@ app('router')->setCompiledRoutes(
             ? \\App\\Models\\Service::where(\'is_active\', true)->orderBy(\'sort_order\')->get()
             : \\collect(),
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005a40000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006c90000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3259,7 +3424,7 @@ app('router')->setCompiledRoutes(
         ->get();
 
     return \\view(\'website.service-show\', \\compact(\'service\', \'relatedServices\'));
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005a60000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006cb0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3301,7 +3466,7 @@ app('router')->setCompiledRoutes(
             ? \\App\\Models\\Lawyer::where(\'is_active\', true)->orderBy(\'sort_order\')->get()
             : \\collect(),
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005a80000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006cd0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3349,7 +3514,7 @@ app('router')->setCompiledRoutes(
         : \\collect();
 
     return \\view(\'website.lawyer-show\', \\compact(\'lawyer\', \'relatedLawyers\'));
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005aa0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006cf0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3391,7 +3556,7 @@ app('router')->setCompiledRoutes(
             ? \\App\\Models\\Service::where(\'is_active\', true)->orderBy(\'sort_order\')->get()
             : \\collect(),
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005ac0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006d10000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3433,7 +3598,7 @@ app('router')->setCompiledRoutes(
             ? \\App\\Models\\Faq::where(\'is_active\', true)->orderBy(\'sort_order\')->get()
             : \\collect(),
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005ae0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000006d30000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3912,6 +4077,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:dashboard',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\DashboardController@__invoke',
         'controller' => 'App\\Http\\Controllers\\Admin\\DashboardController',
@@ -3950,6 +4116,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:profile',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ProfileController@edit',
         'controller' => 'App\\Http\\Controllers\\Admin\\ProfileController@edit',
@@ -3987,6 +4154,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:profile',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ProfileController@update',
         'controller' => 'App\\Http\\Controllers\\Admin\\ProfileController@update',
@@ -4024,6 +4192,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:profile',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ProfileController@password',
         'controller' => 'App\\Http\\Controllers\\Admin\\ProfileController@password',
@@ -4062,6 +4231,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:settings',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\SiteSettingController@edit',
         'controller' => 'App\\Http\\Controllers\\Admin\\SiteSettingController@edit',
@@ -4099,6 +4269,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:settings',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\SiteSettingController@update',
         'controller' => 'App\\Http\\Controllers\\Admin\\SiteSettingController@update',
@@ -4136,6 +4307,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\BlogPostController@restore',
@@ -4173,6 +4345,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\BlogPostController@forceDelete',
@@ -4211,6 +4384,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'as' => 'admin.blog-posts.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@index',
@@ -4249,6 +4423,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'as' => 'admin.blog-posts.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@create',
@@ -4286,6 +4461,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'as' => 'admin.blog-posts.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@store',
@@ -4324,6 +4500,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'as' => 'admin.blog-posts.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@edit',
@@ -4362,6 +4539,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'as' => 'admin.blog-posts.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@update',
@@ -4399,6 +4577,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_posts',
         ),
         'as' => 'admin.blog-posts.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogPostController@destroy',
@@ -4436,6 +4615,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@restore',
@@ -4473,6 +4653,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@forceDelete',
@@ -4511,6 +4692,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'as' => 'admin.blog-categories.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@index',
@@ -4549,6 +4731,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'as' => 'admin.blog-categories.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@create',
@@ -4586,6 +4769,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'as' => 'admin.blog-categories.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@store',
@@ -4624,6 +4808,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'as' => 'admin.blog-categories.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@edit',
@@ -4662,6 +4847,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'as' => 'admin.blog-categories.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@update',
@@ -4699,6 +4885,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_categories',
         ),
         'as' => 'admin.blog-categories.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogCategoryController@destroy',
@@ -4736,6 +4923,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\BlogTagController@restore',
@@ -4773,6 +4961,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\BlogTagController@forceDelete',
@@ -4811,6 +5000,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'as' => 'admin.blog-tags.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@index',
@@ -4849,6 +5039,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'as' => 'admin.blog-tags.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@create',
@@ -4886,6 +5077,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'as' => 'admin.blog-tags.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@store',
@@ -4924,6 +5116,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'as' => 'admin.blog-tags.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@edit',
@@ -4962,6 +5155,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'as' => 'admin.blog-tags.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@update',
@@ -4999,6 +5193,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:blog_tags',
         ),
         'as' => 'admin.blog-tags.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\BlogTagController@destroy',
@@ -5036,6 +5231,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\ClientController@restore',
@@ -5073,6 +5269,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\ClientController@forceDelete',
@@ -5111,6 +5308,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'as' => 'admin.clients.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@index',
@@ -5149,6 +5347,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'as' => 'admin.clients.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@create',
@@ -5186,6 +5385,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'as' => 'admin.clients.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@store',
@@ -5224,6 +5424,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'as' => 'admin.clients.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@edit',
@@ -5262,6 +5463,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'as' => 'admin.clients.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@update',
@@ -5299,6 +5501,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:clients',
         ),
         'as' => 'admin.clients.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\ClientController@destroy',
@@ -5336,6 +5539,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@restore',
@@ -5373,6 +5577,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@forceDelete',
@@ -5410,6 +5615,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@updateRegistration',
         'controller' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@updateRegistration',
@@ -5447,6 +5653,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@updateAttendance',
         'controller' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@updateAttendance',
@@ -5485,6 +5692,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@index',
@@ -5523,6 +5731,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@create',
@@ -5560,6 +5769,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@store',
@@ -5598,6 +5808,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.show',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@show',
@@ -5636,6 +5847,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@edit',
@@ -5674,6 +5886,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@update',
@@ -5711,6 +5924,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:training_courses',
         ),
         'as' => 'admin.training-courses.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\TrainingCourseController@destroy',
@@ -5748,6 +5962,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@restore',
@@ -5785,6 +6000,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@forceDelete',
@@ -5823,6 +6039,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'as' => 'admin.legal-library.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@index',
@@ -5861,6 +6078,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'as' => 'admin.legal-library.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@create',
@@ -5898,6 +6116,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'as' => 'admin.legal-library.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@store',
@@ -5936,6 +6155,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'as' => 'admin.legal-library.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@edit',
@@ -5974,6 +6194,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'as' => 'admin.legal-library.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@update',
@@ -6011,6 +6232,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:legal_library',
         ),
         'as' => 'admin.legal-library.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\LegalLibraryItemController@destroy',
@@ -6048,6 +6270,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\ServiceController@restore',
@@ -6085,6 +6308,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\ServiceController@forceDelete',
@@ -6123,6 +6347,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'as' => 'admin.services.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@index',
@@ -6161,6 +6386,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'as' => 'admin.services.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@create',
@@ -6198,6 +6424,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'as' => 'admin.services.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@store',
@@ -6236,6 +6463,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'as' => 'admin.services.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@edit',
@@ -6274,6 +6502,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'as' => 'admin.services.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@update',
@@ -6311,6 +6540,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:services',
         ),
         'as' => 'admin.services.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\ServiceController@destroy',
@@ -6348,6 +6578,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\LawyerController@restore',
@@ -6385,6 +6616,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\LawyerController@forceDelete',
@@ -6423,6 +6655,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'as' => 'admin.lawyers.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@index',
@@ -6461,6 +6694,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'as' => 'admin.lawyers.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@create',
@@ -6498,6 +6732,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'as' => 'admin.lawyers.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@store',
@@ -6536,6 +6771,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'as' => 'admin.lawyers.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@edit',
@@ -6574,6 +6810,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'as' => 'admin.lawyers.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@update',
@@ -6611,6 +6848,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:lawyers',
         ),
         'as' => 'admin.lawyers.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\LawyerController@destroy',
@@ -6648,6 +6886,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\FaqController@restore',
@@ -6685,6 +6924,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\FaqController@forceDelete',
@@ -6723,6 +6963,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'as' => 'admin.faqs.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@index',
@@ -6761,6 +7002,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'as' => 'admin.faqs.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@create',
@@ -6798,6 +7040,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'as' => 'admin.faqs.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@store',
@@ -6836,6 +7079,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'as' => 'admin.faqs.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@edit',
@@ -6874,6 +7118,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'as' => 'admin.faqs.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@update',
@@ -6911,6 +7156,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:faqs',
         ),
         'as' => 'admin.faqs.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\FaqController@destroy',
@@ -6948,6 +7194,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:contact_requests',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@restore',
@@ -6985,6 +7232,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:contact_requests',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@forceDelete',
@@ -7023,6 +7271,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:contact_requests',
         ),
         'as' => 'admin.contact-requests.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@index',
@@ -7061,6 +7310,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:contact_requests',
         ),
         'as' => 'admin.contact-requests.show',
         'uses' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@show',
@@ -7099,6 +7349,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:contact_requests',
         ),
         'as' => 'admin.contact-requests.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@update',
@@ -7136,6 +7387,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:contact_requests',
         ),
         'as' => 'admin.contact-requests.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\ContactRequestController@destroy',
@@ -7173,6 +7425,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:consultations',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ConsultationController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\ConsultationController@restore',
@@ -7210,6 +7463,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:consultations',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\ConsultationController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\ConsultationController@forceDelete',
@@ -7248,6 +7502,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:consultations',
         ),
         'as' => 'admin.consultations.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\ConsultationController@index',
@@ -7286,6 +7541,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:consultations',
         ),
         'as' => 'admin.consultations.show',
         'uses' => 'App\\Http\\Controllers\\Admin\\ConsultationController@show',
@@ -7324,6 +7580,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:consultations',
         ),
         'as' => 'admin.consultations.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\ConsultationController@update',
@@ -7361,6 +7618,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:consultations',
         ),
         'as' => 'admin.consultations.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\ConsultationController@destroy',
@@ -7398,6 +7656,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@restore',
         'controller' => 'App\\Http\\Controllers\\Admin\\UserController@restore',
@@ -7435,6 +7694,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@forceDelete',
         'controller' => 'App\\Http\\Controllers\\Admin\\UserController@forceDelete',
@@ -7473,6 +7733,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'as' => 'admin.users.index',
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@index',
@@ -7511,6 +7772,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'as' => 'admin.users.create',
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@create',
@@ -7548,6 +7810,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'as' => 'admin.users.store',
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@store',
@@ -7586,6 +7849,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'as' => 'admin.users.edit',
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@edit',
@@ -7624,6 +7888,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'as' => 'admin.users.update',
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@update',
@@ -7661,10 +7926,319 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:users',
         ),
         'as' => 'admin.users.destroy',
         'uses' => 'App\\Http\\Controllers\\Admin\\UserController@destroy',
         'controller' => 'App\\Http\\Controllers\\Admin\\UserController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.restore' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PATCH',
+      ),
+      'uri' => 'admin/roles/{role}/restore',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@restore',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@restore',
+        'as' => 'admin.roles.restore',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.force-delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/roles/{role}/force-delete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@forceDelete',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@forceDelete',
+        'as' => 'admin.roles.force-delete',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/roles',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'as' => 'admin.roles.index',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/roles/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'as' => 'admin.roles.create',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/roles',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'as' => 'admin.roles.store',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/roles/{role}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'as' => 'admin.roles.edit',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/roles/{role}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'as' => 'admin.roles.update',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.roles.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/roles/{role}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'admin.permission:roles',
+        ),
+        'as' => 'admin.roles.destroy',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AdminRoleController@destroy',
         'namespace' => NULL,
         'prefix' => '/admin',
         'where' => 
@@ -7699,6 +8273,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:seo',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\SeoSettingController@index',
         'controller' => 'App\\Http\\Controllers\\Admin\\SeoSettingController@index',
@@ -7737,6 +8312,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:seo',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\SeoSettingController@edit',
         'controller' => 'App\\Http\\Controllers\\Admin\\SeoSettingController@edit',
@@ -7774,6 +8350,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
           1 => 'auth',
+          2 => 'admin.permission:seo',
         ),
         'uses' => 'App\\Http\\Controllers\\Admin\\SeoSettingController@update',
         'controller' => 'App\\Http\\Controllers\\Admin\\SeoSettingController@update',
@@ -7814,7 +8391,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000005bc0000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000006e10000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,
@@ -7847,7 +8424,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000008ce0000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000006e70000000000000000";}}',
         'as' => 'storage.local.upload',
       ),
       'fallback' => false,

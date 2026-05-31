@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\LawyerController;
 use App\Http\Controllers\Admin\LegalLibraryItemController;
+use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -135,53 +136,88 @@ Route::post('/contact', [ContactRequestController::class, 'store'])->name('conta
 Route::post('/ticket', [ConsultationController::class, 'store'])->name('ticket.store');
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', DashboardController::class)->name('dashboard');
-    Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
-    Route::get('settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
-    Route::put('settings', [SiteSettingController::class, 'update'])->name('settings.update');
-    Route::patch('blog-posts/{post}/restore', [BlogPostController::class, 'restore'])->name('blog-posts.restore');
-    Route::delete('blog-posts/{post}/force-delete', [BlogPostController::class, 'forceDelete'])->name('blog-posts.force-delete');
-    Route::resource('blog-posts', BlogPostController::class)->except('show');
-    Route::patch('blog-categories/{category}/restore', [BlogCategoryController::class, 'restore'])->name('blog-categories.restore');
-    Route::delete('blog-categories/{category}/force-delete', [BlogCategoryController::class, 'forceDelete'])->name('blog-categories.force-delete');
-    Route::resource('blog-categories', BlogCategoryController::class)->except('show');
-    Route::patch('blog-tags/{tag}/restore', [BlogTagController::class, 'restore'])->name('blog-tags.restore');
-    Route::delete('blog-tags/{tag}/force-delete', [BlogTagController::class, 'forceDelete'])->name('blog-tags.force-delete');
-    Route::resource('blog-tags', BlogTagController::class)->except('show');
-    Route::patch('clients/{client}/restore', [ClientController::class, 'restore'])->name('clients.restore');
-    Route::delete('clients/{client}/force-delete', [ClientController::class, 'forceDelete'])->name('clients.force-delete');
-    Route::resource('clients', ClientController::class)->except('show');
-    Route::patch('training-courses/{course}/restore', [AdminTrainingCourseController::class, 'restore'])->name('training-courses.restore');
-    Route::delete('training-courses/{course}/force-delete', [AdminTrainingCourseController::class, 'forceDelete'])->name('training-courses.force-delete');
-    Route::put('training-courses/{training_course}/registrations/{registration}', [AdminTrainingCourseController::class, 'updateRegistration'])->name('training-courses.registrations.update');
-    Route::put('training-courses/{training_course}/registrations/{registration}/attendance', [AdminTrainingCourseController::class, 'updateAttendance'])->name('training-courses.registrations.attendance');
-    Route::resource('training-courses', AdminTrainingCourseController::class);
-    Route::patch('legal-library/{item}/restore', [LegalLibraryItemController::class, 'restore'])->name('legal-library.restore');
-    Route::delete('legal-library/{item}/force-delete', [LegalLibraryItemController::class, 'forceDelete'])->name('legal-library.force-delete');
-    Route::resource('legal-library', LegalLibraryItemController::class)
-        ->parameters(['legal-library' => 'legalLibrary'])
-        ->except('show');
-    Route::patch('services/{service}/restore', [ServiceController::class, 'restore'])->name('services.restore');
-    Route::delete('services/{service}/force-delete', [ServiceController::class, 'forceDelete'])->name('services.force-delete');
-    Route::resource('services', ServiceController::class)->except('show');
-    Route::patch('lawyers/{lawyer}/restore', [LawyerController::class, 'restore'])->name('lawyers.restore');
-    Route::delete('lawyers/{lawyer}/force-delete', [LawyerController::class, 'forceDelete'])->name('lawyers.force-delete');
-    Route::resource('lawyers', LawyerController::class)->except('show');
-    Route::patch('faqs/{faq}/restore', [FaqController::class, 'restore'])->name('faqs.restore');
-    Route::delete('faqs/{faq}/force-delete', [FaqController::class, 'forceDelete'])->name('faqs.force-delete');
-    Route::resource('faqs', FaqController::class)->except('show');
-    Route::patch('contact-requests/{contactRequest}/restore', [AdminContactRequestController::class, 'restore'])->name('contact-requests.restore');
-    Route::delete('contact-requests/{contactRequest}/force-delete', [AdminContactRequestController::class, 'forceDelete'])->name('contact-requests.force-delete');
-    Route::resource('contact-requests', AdminContactRequestController::class)->only(['index', 'show', 'update', 'destroy']);
-    Route::patch('consultations/{consultation}/restore', [AdminConsultationController::class, 'restore'])->name('consultations.restore');
-    Route::delete('consultations/{consultation}/force-delete', [AdminConsultationController::class, 'forceDelete'])->name('consultations.force-delete');
-    Route::resource('consultations', AdminConsultationController::class)->only(['index', 'show', 'update', 'destroy']);
-    Route::patch('users/{user}/restore', [UserController::class, 'restore'])->name('users.restore');
-    Route::delete('users/{user}/force-delete', [UserController::class, 'forceDelete'])->name('users.force-delete');
-    Route::resource('users', UserController::class)->except('show');
-    Route::get('seo', [SeoSettingController::class, 'index'])->name('seo.index');
-    Route::get('seo/{seo}/edit', [SeoSettingController::class, 'edit'])->name('seo.edit');
-    Route::put('seo/{seo}', [SeoSettingController::class, 'update'])->name('seo.update');
+    Route::get('/', DashboardController::class)->middleware('admin.permission:dashboard')->name('dashboard');
+    Route::get('profile', [ProfileController::class, 'edit'])->middleware('admin.permission:profile')->name('profile.edit');
+    Route::put('profile', [ProfileController::class, 'update'])->middleware('admin.permission:profile')->name('profile.update');
+    Route::put('profile/password', [ProfileController::class, 'password'])->middleware('admin.permission:profile')->name('profile.password');
+
+    Route::middleware('admin.permission:settings')->group(function () {
+        Route::get('settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
+        Route::put('settings', [SiteSettingController::class, 'update'])->name('settings.update');
+    });
+
+    Route::middleware('admin.permission:blog_posts')->group(function () {
+        Route::patch('blog-posts/{post}/restore', [BlogPostController::class, 'restore'])->name('blog-posts.restore');
+        Route::delete('blog-posts/{post}/force-delete', [BlogPostController::class, 'forceDelete'])->name('blog-posts.force-delete');
+        Route::resource('blog-posts', BlogPostController::class)->except('show');
+    });
+    Route::middleware('admin.permission:blog_categories')->group(function () {
+        Route::patch('blog-categories/{category}/restore', [BlogCategoryController::class, 'restore'])->name('blog-categories.restore');
+        Route::delete('blog-categories/{category}/force-delete', [BlogCategoryController::class, 'forceDelete'])->name('blog-categories.force-delete');
+        Route::resource('blog-categories', BlogCategoryController::class)->except('show');
+    });
+    Route::middleware('admin.permission:blog_tags')->group(function () {
+        Route::patch('blog-tags/{tag}/restore', [BlogTagController::class, 'restore'])->name('blog-tags.restore');
+        Route::delete('blog-tags/{tag}/force-delete', [BlogTagController::class, 'forceDelete'])->name('blog-tags.force-delete');
+        Route::resource('blog-tags', BlogTagController::class)->except('show');
+    });
+    Route::middleware('admin.permission:clients')->group(function () {
+        Route::patch('clients/{client}/restore', [ClientController::class, 'restore'])->name('clients.restore');
+        Route::delete('clients/{client}/force-delete', [ClientController::class, 'forceDelete'])->name('clients.force-delete');
+        Route::resource('clients', ClientController::class)->except('show');
+    });
+    Route::middleware('admin.permission:training_courses')->group(function () {
+        Route::patch('training-courses/{course}/restore', [AdminTrainingCourseController::class, 'restore'])->name('training-courses.restore');
+        Route::delete('training-courses/{course}/force-delete', [AdminTrainingCourseController::class, 'forceDelete'])->name('training-courses.force-delete');
+        Route::put('training-courses/{training_course}/registrations/{registration}', [AdminTrainingCourseController::class, 'updateRegistration'])->name('training-courses.registrations.update');
+        Route::put('training-courses/{training_course}/registrations/{registration}/attendance', [AdminTrainingCourseController::class, 'updateAttendance'])->name('training-courses.registrations.attendance');
+        Route::resource('training-courses', AdminTrainingCourseController::class);
+    });
+    Route::middleware('admin.permission:legal_library')->group(function () {
+        Route::patch('legal-library/{item}/restore', [LegalLibraryItemController::class, 'restore'])->name('legal-library.restore');
+        Route::delete('legal-library/{item}/force-delete', [LegalLibraryItemController::class, 'forceDelete'])->name('legal-library.force-delete');
+        Route::resource('legal-library', LegalLibraryItemController::class)
+            ->parameters(['legal-library' => 'legalLibrary'])
+            ->except('show');
+    });
+    Route::middleware('admin.permission:services')->group(function () {
+        Route::patch('services/{service}/restore', [ServiceController::class, 'restore'])->name('services.restore');
+        Route::delete('services/{service}/force-delete', [ServiceController::class, 'forceDelete'])->name('services.force-delete');
+        Route::resource('services', ServiceController::class)->except('show');
+    });
+    Route::middleware('admin.permission:lawyers')->group(function () {
+        Route::patch('lawyers/{lawyer}/restore', [LawyerController::class, 'restore'])->name('lawyers.restore');
+        Route::delete('lawyers/{lawyer}/force-delete', [LawyerController::class, 'forceDelete'])->name('lawyers.force-delete');
+        Route::resource('lawyers', LawyerController::class)->except('show');
+    });
+    Route::middleware('admin.permission:faqs')->group(function () {
+        Route::patch('faqs/{faq}/restore', [FaqController::class, 'restore'])->name('faqs.restore');
+        Route::delete('faqs/{faq}/force-delete', [FaqController::class, 'forceDelete'])->name('faqs.force-delete');
+        Route::resource('faqs', FaqController::class)->except('show');
+    });
+    Route::middleware('admin.permission:contact_requests')->group(function () {
+        Route::patch('contact-requests/{contactRequest}/restore', [AdminContactRequestController::class, 'restore'])->name('contact-requests.restore');
+        Route::delete('contact-requests/{contactRequest}/force-delete', [AdminContactRequestController::class, 'forceDelete'])->name('contact-requests.force-delete');
+        Route::resource('contact-requests', AdminContactRequestController::class)->only(['index', 'show', 'update', 'destroy']);
+    });
+    Route::middleware('admin.permission:consultations')->group(function () {
+        Route::patch('consultations/{consultation}/restore', [AdminConsultationController::class, 'restore'])->name('consultations.restore');
+        Route::delete('consultations/{consultation}/force-delete', [AdminConsultationController::class, 'forceDelete'])->name('consultations.force-delete');
+        Route::resource('consultations', AdminConsultationController::class)->only(['index', 'show', 'update', 'destroy']);
+    });
+    Route::middleware('admin.permission:users')->group(function () {
+        Route::patch('users/{user}/restore', [UserController::class, 'restore'])->name('users.restore');
+        Route::delete('users/{user}/force-delete', [UserController::class, 'forceDelete'])->name('users.force-delete');
+        Route::resource('users', UserController::class)->except('show');
+    });
+    Route::middleware('admin.permission:roles')->group(function () {
+        Route::patch('roles/{role}/restore', [AdminRoleController::class, 'restore'])->name('roles.restore');
+        Route::delete('roles/{role}/force-delete', [AdminRoleController::class, 'forceDelete'])->name('roles.force-delete');
+        Route::resource('roles', AdminRoleController::class)->except('show');
+    });
+    Route::middleware('admin.permission:seo')->group(function () {
+        Route::get('seo', [SeoSettingController::class, 'index'])->name('seo.index');
+        Route::get('seo/{seo}/edit', [SeoSettingController::class, 'edit'])->name('seo.edit');
+        Route::put('seo/{seo}', [SeoSettingController::class, 'update'])->name('seo.update');
+    });
 });

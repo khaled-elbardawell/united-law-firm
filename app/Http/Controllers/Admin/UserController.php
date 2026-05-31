@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminRole;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -12,12 +13,13 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::query()
+            ->with('adminRole')
             ->when($request->view === 'trash', fn ($query) => $query->onlyTrashed())
             ->when($request->filled('q'), fn ($query) => $query->where(function ($query) use ($request) {
                 $query->where('name', 'like', '%'.$request->q.'%')
                     ->orWhere('email', 'like', '%'.$request->q.'%');
             }))
-            ->when($request->filled('role'), fn ($query) => $query->where('role', $request->role))
+            ->when($request->filled('role'), fn ($query) => $query->where('admin_role_id', $request->role))
             ->when($request->filled('active'), fn ($query) => $query->where('is_active', $request->active))
             ->latest()
             ->paginate(15)
@@ -25,13 +27,17 @@ class UserController extends Controller
 
         return view('admin.users.index', [
             'users' => $users,
+            'roles' => AdminRole::where('is_active', true)->orderBy('name')->get(),
             'trashCount' => User::onlyTrashed()->count(),
         ]);
     }
 
     public function create()
     {
-        return view('admin.users.form', ['user' => new User()]);
+        return view('admin.users.form', [
+            'user' => new User(['is_active' => true]),
+            'roles' => AdminRole::where('is_active', true)->orderBy('name')->get(),
+        ]);
     }
 
     public function store(Request $request)
@@ -43,7 +49,13 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('admin.users.form', compact('user'));
+        return view('admin.users.form', [
+            'user' => $user,
+            'roles' => AdminRole::where(function ($query) use ($user) {
+                $query->where('is_active', true)
+                    ->when($user->admin_role_id, fn ($query) => $query->orWhere('id', $user->admin_role_id));
+            })->orderBy('name')->get(),
+        ]);
     }
 
     public function update(Request $request, User $user)
@@ -83,12 +95,18 @@ class UserController extends Controller
 
     private function validated(Request $request, ?User $user = null): array
     {
-        return $request->validate([
+        $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user)],
             'password' => [$user ? 'nullable' : 'required', 'string', 'min:8', 'confirmed'],
-            'role' => ['required', 'in:admin,manager,editor'],
+            'admin_role_id' => ['required', Rule::exists('admin_roles', 'id')->where('is_active', true)],
             'is_active' => ['nullable', 'boolean'],
-        ]) + ['is_active' => $request->boolean('is_active')];
+        ]);
+
+        $data['role'] = AdminRole::find($data['admin_role_id'])?->slug ?? 'editor';
+        $data['permissions'] = null;
+        $data['is_active'] = $request->boolean('is_active');
+
+        return $data;
     }
 }

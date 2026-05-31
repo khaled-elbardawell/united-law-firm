@@ -1,4 +1,4 @@
-<x-admin.layouts.app :heading="$user->exists ? 'تعديل مستخدم' : 'إضافة مستخدم'" description="بيانات حساب الدخول إلى لوحة التحكم.">
+<x-admin.layouts.app :heading="$user->exists ? 'تعديل مستخدم' : 'إضافة مستخدم'" description="اختر الدور الذي يحدد صلاحيات المستخدم داخل لوحة التحكم.">
     <section class="admin-card">
         <form method="POST" action="{{ $user->exists ? route('admin.users.update', $user) : route('admin.users.store') }}">
             @csrf
@@ -7,10 +7,11 @@
                 <div class="field"><label>الاسم</label><input name="name" value="{{ old('name', $user->name) }}" required></div>
                 <div class="field"><label>البريد الإلكتروني</label><input name="email" type="email" value="{{ old('email', $user->email) }}" required></div>
                 <div class="field">
-                    <label>الصلاحية</label>
-                    <select name="role" required>
-                        @foreach (['admin' => 'مدير', 'manager' => 'مسؤول', 'editor' => 'محرر'] as $key => $label)
-                            <option value="{{ $key }}" @selected(old('role', $user->role ?? 'admin') === $key)>{{ $label }}</option>
+                    <label>الدور</label>
+                    <select name="admin_role_id" required>
+                        <option value="">اختر الدور</option>
+                        @foreach ($roles as $role)
+                            <option value="{{ $role->id }}" @selected((string) old('admin_role_id', $user->admin_role_id) === (string) $role->id)>{{ $role->name }}</option>
                         @endforeach
                     </select>
                 </div>
