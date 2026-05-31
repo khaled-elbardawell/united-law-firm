@@ -314,7 +314,7 @@ img {
     cursor: pointer;
     font: inherit;
     font-weight: 700;
-    opacity: .85;
+    opacity: 0.85;
 }
 
 .nav-dropdown.active > button,
@@ -332,9 +332,9 @@ img {
     display: grid;
     gap: 4px;
     padding: 10px;
-    border: 1px solid rgba(var(--accent-gold-rgb), .22);
+    border: 1px solid rgba(var(--accent-gold-rgb), 0.22);
     border-radius: var(--radius-md);
-    background: rgba(7, 19, 31, .98);
+    background: rgba(7, 19, 31, 0.98);
     box-shadow: var(--shadow-premium);
     opacity: 0;
     visibility: hidden;
@@ -357,7 +357,7 @@ img {
 }
 
 .nav-dropdown-menu a:hover {
-    background: rgba(var(--accent-gold-rgb), .14);
+    background: rgba(var(--accent-gold-rgb), 0.14);
     color: var(--accent-gold-light);
 }
 
@@ -369,7 +369,7 @@ img {
     padding: 16px;
     margin-bottom: 28px;
     background: #fff;
-    border: 1px solid rgba(16, 30, 41, .08);
+    border: 1px solid rgba(16, 30, 41, 0.08);
     box-shadow: var(--shadow-soft);
 }
 
@@ -398,7 +398,7 @@ img {
 .legal-item-card,
 .legal-detail-card {
     background: #fff;
-    border: 1px solid rgba(16, 30, 41, .08);
+    border: 1px solid rgba(16, 30, 41, 0.08);
     box-shadow: var(--shadow-soft);
 }
 
@@ -407,12 +407,14 @@ img {
     gap: 12px;
     padding: 28px;
     color: inherit;
-    transition: transform .2s ease, border-color .2s ease;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .legal-library-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(var(--accent-gold-rgb), .45);
+    border-color: rgba(var(--accent-gold-rgb), 0.45);
 }
 
 .legal-library-icon {
@@ -421,7 +423,7 @@ img {
     display: grid;
     place-items: center;
     color: var(--accent-gold);
-    background: rgba(var(--accent-gold-rgb), .12);
+    background: rgba(var(--accent-gold-rgb), 0.12);
     font-size: 22px;
 }
 
@@ -497,7 +499,7 @@ img {
 
 .legal-pdf-viewer {
     margin-top: 28px;
-    border-top: 1px solid rgba(16, 30, 41, .08);
+    border-top: 1px solid rgba(16, 30, 41, 0.08);
     padding-top: 22px;
 }
 
@@ -512,7 +514,7 @@ img {
 .legal-pdf-viewer iframe {
     width: 100%;
     min-height: 680px;
-    border: 1px solid rgba(16, 30, 41, .1);
+    border: 1px solid rgba(16, 30, 41, 0.1);
     background: #f8f8f8;
 }
 
@@ -1368,10 +1370,9 @@ img {
 
 .blog-filter-panel {
     display: grid;
-    grid-template-columns: minmax(240px, 1fr) minmax(170px, auto) minmax(
-            150px,
-            auto
-        ) auto auto;
+    grid-template-columns:
+        minmax(240px, 1fr) minmax(170px, auto) minmax(150px, auto)
+        auto auto;
     gap: 10px;
     align-items: center;
     margin-bottom: 16px;
@@ -2142,7 +2143,7 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: .88rem;
+    font-size: 0.88rem;
     font-weight: 900;
     margin-top: 18px;
 }
@@ -2158,8 +2159,8 @@ img {
 
 .lawyer-profile-hero {
     background:
-        linear-gradient(135deg, rgba(7, 19, 31, .96), rgba(7, 19, 31, .86)),
-        url(/assets/office.webp) center/cover no-repeat;
+        linear-gradient(135deg, rgba(7, 19, 31, 0.96), rgba(7, 19, 31, 0.86)),
+        url(/assets/office.jpeg) center/cover no-repeat;
     color: var(--text-light);
     padding: calc(var(--header-height) + 54px) 0 72px;
     position: relative;
@@ -2211,8 +2212,8 @@ img {
 }
 
 .lawyer-profile-card {
-    background: rgba(255, 255, 255, .08);
-    border: 1px solid rgba(var(--accent-gold-rgb), .32);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(var(--accent-gold-rgb), 0.32);
     border-radius: var(--radius-lg);
     padding: 16px;
     box-shadow: var(--shadow-premium);
@@ -2221,7 +2222,11 @@ img {
 
 .lawyer-profile-photo {
     aspect-ratio: 4 / 4.6;
-    background: linear-gradient(135deg, var(--primary-navy-dark), var(--primary-navy-light));
+    background: linear-gradient(
+        135deg,
+        var(--primary-navy-dark),
+        var(--primary-navy-light)
+    );
     border-radius: 18px;
     display: grid;
     place-items: center;
@@ -2244,8 +2249,8 @@ img {
 }
 
 .lawyer-profile-facts div {
-    background: rgba(255, 255, 255, .1);
-    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-md);
     padding: 12px 8px;
     text-align: center;
@@ -2261,7 +2266,7 @@ img {
 .lawyer-profile-facts span {
     color: #d8e2ee;
     display: block;
-    font-size: .74rem;
+    font-size: 0.74rem;
     font-weight: 800;
     margin-top: 4px;
 }
@@ -2356,7 +2361,7 @@ img {
 .lawyer-cv-panel__head span {
     color: var(--accent-gold);
     display: block;
-    font-size: .78rem;
+    font-size: 0.78rem;
     font-weight: 900;
     text-transform: uppercase;
 }
@@ -2394,7 +2399,7 @@ img {
     height: 8px;
     position: absolute;
     right: 0;
-    top: .72em;
+    top: 0.72em;
     width: 8px;
 }
 
@@ -2428,7 +2433,7 @@ img {
 }
 
 .training-card:hover {
-    border-color: rgba(var(--accent-gold-rgb), .46);
+    border-color: rgba(var(--accent-gold-rgb), 0.46);
     box-shadow: var(--shadow-premium);
     transform: translateY(-6px);
 }
@@ -2458,7 +2463,7 @@ img {
     border-radius: var(--radius-pill);
     background: var(--gold-gradient);
     color: var(--primary-navy);
-    font-size: .82rem;
+    font-size: 0.82rem;
     font-weight: 900;
     padding: 6px 12px;
 }
@@ -2499,7 +2504,7 @@ img {
     display: inline-flex;
     gap: 6px;
     padding: 6px 10px;
-    font-size: .82rem;
+    font-size: 0.82rem;
     font-weight: 800;
 }
 
@@ -2534,7 +2539,9 @@ img {
 }
 
 .training-show-hero {
-    background: linear-gradient(135deg, rgba(7, 19, 31, .96), rgba(7, 19, 31, .84)), url(/assets/office.webp) center/cover no-repeat;
+    background:
+        linear-gradient(135deg, rgba(7, 19, 31, 0.96), rgba(7, 19, 31, 0.84)),
+        url(/assets/office.jpeg) center/cover no-repeat;
     color: var(--text-light);
     padding: calc(var(--header-height) + 54px) 0 72px;
 }
@@ -2574,9 +2581,9 @@ img {
     aspect-ratio: 4 / 3.4;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(var(--accent-gold-rgb), .34);
+    border: 1px solid rgba(var(--accent-gold-rgb), 0.34);
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--accent-gold-light);
     font-size: 5rem;
     overflow: hidden;
@@ -2631,7 +2638,7 @@ img {
     height: 8px;
     position: absolute;
     right: 0;
-    top: .72em;
+    top: 0.72em;
     border-radius: 50%;
     background: var(--accent-gold);
 }
@@ -3728,7 +3735,7 @@ iframe.map-box {
         visibility: visible;
         transform: none;
         box-shadow: none;
-        background: rgba(255, 255, 255, .06);
+        background: rgba(255, 255, 255, 0.06);
         margin-top: 8px;
     }
 
