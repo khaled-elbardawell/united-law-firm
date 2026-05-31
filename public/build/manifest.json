@@ -29,9 +29,9 @@
       "assets/office-CWdif5KW.webp"
     ]
   },
-  "resources/images/office.webp": {
+  "resources/images/office.jpeg": {
     "file": "assets/office-CWdif5KW.webp",
-    "src": "resources/images/office.webp"
+    "src": "resources/images/office.jpeg"
   },
   "resources/js/app.js": {
     "file": "assets/app-B7Ihcvy0.js",
