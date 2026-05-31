@@ -66,6 +66,9 @@
                 <a class="{{ request()->routeIs('admin.blog-tags.*') ? 'active' : '' }}"
                     href="{{ route('admin.blog-tags.index') }}">وسوم المدونة <span><i
                             class="fa-solid fa-tags"></i></span></a>
+                <a class="{{ request()->routeIs('admin.clients.*') ? 'active' : '' }}"
+                    href="{{ route('admin.clients.index') }}">الجهات الموثوقة <span><i
+                            class="fa-solid fa-handshake"></i></span></a>
                 <a class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}"
                     href="{{ route('admin.users.index') }}">المستخدمون <span><i
                             class="fa-solid fa-users-gear"></i></span></a>

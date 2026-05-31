@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ConsultationController as AdminConsultationController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogPostController;
+use App\Http\Controllers\Admin\BlogTagController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactRequestController as AdminContactRequestController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
@@ -12,8 +16,10 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Website\ConsultationController;
+use App\Http\Controllers\Website\BlogController;
 use App\Http\Controllers\Website\ContactRequestController;
 use App\Models\Faq;
+use App\Models\Client;
 use App\Models\Lawyer;
 use App\Models\Service;
 use Illuminate\Support\Facades\Schema;
@@ -23,12 +29,19 @@ Route::get('/', function () {
         'services' => Schema::hasTable('services')
             ? Service::where('is_active', true)->orderBy('sort_order')->take(6)->get()
             : collect(),
+        'clients' => Schema::hasTable('clients')
+            ? Client::where('is_active', true)->orderBy('sort_order')->get()
+            : collect(),
     ]);
 })->name('home');
 
 
 Route::get('/about', function () {
-    return view('website.about');
+    return view('website.about', [
+        'clients' => Schema::hasTable('clients')
+            ? Client::where('is_active', true)->orderBy('sort_order')->get()
+            : collect(),
+    ]);
 })->name('about');
 
 Route::get('/contact', function () {
@@ -83,6 +96,9 @@ Route::get('/faq', function () {
     ]);
 })->name('faq');
 
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
 Route::post('/contact', [ContactRequestController::class, 'store'])->name('contact.store');
 Route::post('/ticket', [ConsultationController::class, 'store'])->name('ticket.store');
 
@@ -93,6 +109,18 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
     Route::get('settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SiteSettingController::class, 'update'])->name('settings.update');
+    Route::patch('blog-posts/{post}/restore', [BlogPostController::class, 'restore'])->name('blog-posts.restore');
+    Route::delete('blog-posts/{post}/force-delete', [BlogPostController::class, 'forceDelete'])->name('blog-posts.force-delete');
+    Route::resource('blog-posts', BlogPostController::class)->except('show');
+    Route::patch('blog-categories/{category}/restore', [BlogCategoryController::class, 'restore'])->name('blog-categories.restore');
+    Route::delete('blog-categories/{category}/force-delete', [BlogCategoryController::class, 'forceDelete'])->name('blog-categories.force-delete');
+    Route::resource('blog-categories', BlogCategoryController::class)->except('show');
+    Route::patch('blog-tags/{tag}/restore', [BlogTagController::class, 'restore'])->name('blog-tags.restore');
+    Route::delete('blog-tags/{tag}/force-delete', [BlogTagController::class, 'forceDelete'])->name('blog-tags.force-delete');
+    Route::resource('blog-tags', BlogTagController::class)->except('show');
+    Route::patch('clients/{client}/restore', [ClientController::class, 'restore'])->name('clients.restore');
+    Route::delete('clients/{client}/force-delete', [ClientController::class, 'forceDelete'])->name('clients.force-delete');
+    Route::resource('clients', ClientController::class)->except('show');
     Route::patch('services/{service}/restore', [ServiceController::class, 'restore'])->name('services.restore');
     Route::delete('services/{service}/force-delete', [ServiceController::class, 'forceDelete'])->name('services.force-delete');
     Route::resource('services', ServiceController::class)->except('show');

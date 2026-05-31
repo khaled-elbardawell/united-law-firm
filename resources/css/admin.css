@@ -322,6 +322,33 @@ a.stat-card:hover {
     background: #fff8f6;
 }
 
+.admin-client-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-client-logo {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 14px;
+    border: 1px solid #eadcc7;
+    background: #fffaf2;
+    color: var(--admin-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.admin-client-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+}
+
 .admin-filters {
     display: grid;
     grid-template-columns: minmax(220px, 1fr) repeat(2, minmax(150px, auto)) auto auto;

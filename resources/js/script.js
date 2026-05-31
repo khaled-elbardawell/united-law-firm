@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormWizard();
   initFileAttachments();
   initScrollTopButton();
+  initTrustedClientsSlider();
 });
 
 /**
@@ -64,7 +65,7 @@ function initScrollReveal() {
   const revealElements = document.querySelectorAll(
     '.service-card, .service-card--home, .feature, .value-card, .lawyer-card, ' +
     '.faq-item, .contact-card, .form-card, .ticket-side, .sec-head, .office-frame, ' +
-    '.about-stat, .cta .container, .form-section'
+    '.about-stat, .cta .container, .form-section, .trusted-client-card'
   );
 
   if (revealElements.length === 0) return;
@@ -317,4 +318,163 @@ function initScrollTopButton() {
 
   window.addEventListener('scroll', toggleButton, { passive: true });
   toggleButton();
+}
+
+/**
+ * 8. Trusted clients horizontal slider
+ */
+function initTrustedClientsSlider() {
+  const sliders = document.querySelectorAll('[data-trusted-slider]');
+  if (!sliders.length) return;
+
+  sliders.forEach((slider) => {
+    const track = slider.querySelector('.trusted-slider-track');
+    const prev = slider.querySelector('.trusted-slider-btn--prev');
+    const next = slider.querySelector('.trusted-slider-btn--next');
+
+    if (!track || !prev || !next) return;
+
+    const isRtl = document.documentElement.dir === 'rtl' || document.body.dir === 'rtl';
+    const cards = Array.from(track.querySelectorAll('.trusted-client-card'));
+    const scrollAmount = () => {
+      const firstCard = cards[0];
+      return firstCard ? firstCard.getBoundingClientRect().width + 16 : Math.min(track.clientWidth * 0.8, 340);
+    };
+
+    const hasOverflow = () => track.scrollWidth > track.clientWidth + 4;
+
+    const updateControls = () => {
+      slider.classList.toggle('is-static', !hasOverflow());
+
+      if (!hasOverflow() || cards.length === 0) {
+        prev.disabled = true;
+        next.disabled = true;
+        return;
+      }
+
+      const trackRect = track.getBoundingClientRect();
+      const firstRect = cards[0].getBoundingClientRect();
+      const lastRect = cards[cards.length - 1].getBoundingClientRect();
+
+      if (isRtl) {
+        prev.disabled = firstRect.right <= trackRect.right + 3;
+        next.disabled = lastRect.left >= trackRect.left - 3;
+      } else {
+        prev.disabled = firstRect.left >= trackRect.left - 3;
+        next.disabled = lastRect.right <= trackRect.right + 3;
+      }
+    };
+
+    next.addEventListener('click', () => {
+      scrollNext();
+    });
+
+    prev.addEventListener('click', () => {
+      scrollPrev();
+    });
+
+    const scrollNext = () => {
+      track.scrollBy({ left: isRtl ? -scrollAmount() : scrollAmount(), behavior: 'smooth' });
+    };
+
+    const scrollPrev = () => {
+      track.scrollBy({ left: isRtl ? scrollAmount() : -scrollAmount(), behavior: 'smooth' });
+    };
+
+    const jumpToStart = () => {
+      const firstCard = cards[0];
+      if (!firstCard) return;
+      firstCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    };
+
+    let activePointerId = null;
+    let isDragging = false;
+    let didDrag = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let autoPlayTimer = null;
+
+    const pauseAutoPlay = () => {
+      if (autoPlayTimer) window.clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    };
+
+    const startAutoPlay = () => {
+      pauseAutoPlay();
+      if (!hasOverflow() || cards.length < 2) return;
+
+      autoPlayTimer = window.setInterval(() => {
+        updateControls();
+        if (next.disabled) {
+          jumpToStart();
+        } else {
+          scrollNext();
+        }
+      }, 4200);
+    };
+
+    const startDrag = (clientX) => {
+      if (!hasOverflow()) return;
+      isDragging = true;
+      didDrag = false;
+      startX = clientX;
+      startScrollLeft = track.scrollLeft;
+      track.classList.add('is-dragging');
+      pauseAutoPlay();
+    };
+
+    const moveDrag = (clientX) => {
+      if (!isDragging) return;
+
+      const deltaX = clientX - startX;
+      if (Math.abs(deltaX) > 5) didDrag = true;
+
+      track.scrollLeft = isRtl ? startScrollLeft + deltaX : startScrollLeft - deltaX;
+    };
+
+    const endDrag = () => {
+      if (!isDragging) return;
+      activePointerId = null;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      updateControls();
+      startAutoPlay();
+    };
+
+    track.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      if (!hasOverflow()) return;
+      activePointerId = event.pointerId;
+      track.setPointerCapture(activePointerId);
+      startDrag(event.clientX);
+      if (event.pointerType === 'mouse') event.preventDefault();
+    });
+
+    track.addEventListener('pointermove', (event) => {
+      if (activePointerId !== event.pointerId) return;
+      moveDrag(event.clientX);
+    });
+
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('lostpointercapture', endDrag);
+    track.addEventListener('dragstart', (event) => event.preventDefault());
+    slider.addEventListener('mouseenter', pauseAutoPlay);
+    slider.addEventListener('mouseleave', startAutoPlay);
+    track.addEventListener('scroll', () => window.requestAnimationFrame(updateControls), { passive: true });
+    window.addEventListener('resize', () => {
+      updateControls();
+      startAutoPlay();
+    });
+
+    track.addEventListener('click', (event) => {
+      if (!didDrag) return;
+      event.preventDefault();
+      event.stopPropagation();
+      didDrag = false;
+    }, true);
+
+    updateControls();
+    startAutoPlay();
+  });
 }

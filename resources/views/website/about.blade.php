@@ -64,6 +64,8 @@
         </div>
     </section>
 
+    @include('website.partials.trusted-clients', ['clients' => $clients ?? collect()])
+
     <!-- Values Section -->
     <section class="section section-soft" id="aboutValues">
         <div class="container">

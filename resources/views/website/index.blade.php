@@ -55,6 +55,8 @@
         </div>
     </section>
 
+    @include('website.partials.trusted-clients', ['clients' => $clients ?? collect()])
+
     <section class="section" id="homeFeatures">
         <div class="container">
             <div class="sec-head">
