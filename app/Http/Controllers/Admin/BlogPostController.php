@@ -101,10 +101,12 @@ class BlogPostController extends Controller
 
     private function validated(Request $request, ?BlogPost $post = null): array
     {
+        $this->normalizeSlugInput($request);
+
         $data = $request->validate([
             'blog_category_id' => ['nullable', 'exists:blog_categories,id'],
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['nullable', 'string', 'max:255', 'unique:blog_posts,slug,'.($post?->id ?? 'NULL')],
+            'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:blog_posts,slug,'.($post?->id ?? 'NULL')],
             'excerpt' => ['nullable', 'string', 'max:1000'],
             'content' => ['required', 'string'],
             'featured_image_file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:3072'],
@@ -117,6 +119,8 @@ class BlogPostController extends Controller
             'meta_keywords' => ['nullable', 'string', 'max:500'],
             'og_image' => ['nullable', 'url', 'max:1000'],
             'is_indexable' => ['nullable', 'boolean'],
+        ], [
+            'slug.regex' => 'الرابط يجب أن يحتوي أحرفاً إنجليزية صغيرة أو أرقاماً وشرطة (-) فقط، مثل contract-disputes.',
         ]);
 
         $data['slug'] = $data['slug'] ?: Str::slug($data['title']) ?: Str::random(8);
@@ -133,5 +137,12 @@ class BlogPostController extends Controller
         unset($data['featured_image_file']);
 
         return $data;
+    }
+
+    private function normalizeSlugInput(Request $request): void
+    {
+        if ($request->has('slug')) {
+            $request->merge(['slug' => Str::lower(trim((string) $request->input('slug')))]);
+        }
     }
 }

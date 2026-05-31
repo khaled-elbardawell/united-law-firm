@@ -75,13 +75,24 @@ class BlogTagController extends Controller
 
     private function validated(Request $request, ?BlogTag $tag = null): array
     {
+        $this->normalizeSlugInput($request);
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'slug' => ['nullable', 'string', 'max:255', 'unique:blog_tags,slug,'.($tag?->id ?? 'NULL')],
+            'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:blog_tags,slug,'.($tag?->id ?? 'NULL')],
+        ], [
+            'slug.regex' => 'الرابط يجب أن يحتوي أحرفاً إنجليزية صغيرة أو أرقاماً وشرطة (-) فقط، مثل contracts.',
         ]);
 
         $data['slug'] = $data['slug'] ?: Str::slug($data['name']) ?: Str::random(8);
 
         return $data;
+    }
+
+    private function normalizeSlugInput(Request $request): void
+    {
+        if ($request->has('slug')) {
+            $request->merge(['slug' => Str::lower(trim((string) $request->input('slug')))]);
+        }
     }
 }

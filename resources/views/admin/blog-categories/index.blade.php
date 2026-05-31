@@ -28,6 +28,9 @@
                                 <form method="POST" action="{{ route('admin.blog-categories.force-delete', $category->id) }}" onsubmit="return confirm('حذف نهائي؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف نهائي</button></form>
                             @else
                                 <a class="btn-admin" href="{{ route('admin.blog-categories.edit', $category) }}">تعديل</a>
+                                @if ($category->is_active)
+                                    <a class="btn-admin btn-muted" href="{{ route('blog.index', ['category' => $category->slug]) }}" target="_blank">عرض الآن</a>
+                                @endif
                                 <form method="POST" action="{{ route('admin.blog-categories.destroy', $category) }}" onsubmit="return confirm('نقل التصنيف إلى السلة؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف</button></form>
                             @endif
                         </td>

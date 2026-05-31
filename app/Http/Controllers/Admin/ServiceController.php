@@ -77,14 +77,18 @@ class ServiceController extends Controller
 
     private function validated(Request $request, ?Service $service = null): array
     {
+        $this->normalizeSlugInput($request);
+
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['nullable', 'string', 'max:255', 'unique:services,slug,'.($service?->id ?? 'NULL')],
+            'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:services,slug,'.($service?->id ?? 'NULL')],
             'icon' => ['nullable', 'string', 'max:140'],
             'summary' => ['required', 'string', 'max:1000'],
             'description' => ['nullable', 'string'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_active' => ['nullable', 'boolean'],
+        ], [
+            'slug.regex' => 'الرابط يجب أن يحتوي أحرفاً إنجليزية صغيرة أو أرقاماً وشرطة (-) فقط، مثل corporate-law.',
         ]);
 
         $data['slug'] = $data['slug'] ?: Str::slug($data['title']) ?: Str::random(8);
@@ -92,5 +96,12 @@ class ServiceController extends Controller
         $data['is_active'] = $request->boolean('is_active');
 
         return $data;
+    }
+
+    private function normalizeSlugInput(Request $request): void
+    {
+        if ($request->has('slug')) {
+            $request->merge(['slug' => Str::lower(trim((string) $request->input('slug')))]);
+        }
     }
 }

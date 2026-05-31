@@ -30,7 +30,7 @@
                                 <form method="POST" action="{{ route('admin.blog-posts.restore', $post->id) }}">@csrf @method('PATCH')<button class="btn-admin btn-gold" type="submit">استرجاع</button></form>
                                 <form method="POST" action="{{ route('admin.blog-posts.force-delete', $post->id) }}" onsubmit="return confirm('حذف نهائي؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف نهائي</button></form>
                             @else
-                                @if ($post->status === 'published')<a class="btn-admin" href="{{ route('blog.show', $post->slug) }}" target="_blank">عرض</a>@endif
+                                @if ($post->status === 'published')<a class="btn-admin btn-muted" href="{{ route('blog.show', $post->slug) }}" target="_blank">عرض الآن</a>@endif
                                 <a class="btn-admin" href="{{ route('admin.blog-posts.edit', $post) }}">تعديل</a>
                                 <form method="POST" action="{{ route('admin.blog-posts.destroy', $post) }}" onsubmit="return confirm('نقل المقال إلى السلة؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف</button></form>
                             @endif

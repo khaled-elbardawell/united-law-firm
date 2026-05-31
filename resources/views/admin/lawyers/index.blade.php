@@ -29,7 +29,7 @@
                             @else
                                 <a class="btn-admin" href="{{ route('admin.lawyers.edit', $lawyer) }}">تعديل</a>
                                 @if ($lawyer->is_active)
-                                    <a class="btn-admin btn-muted" href="{{ route('lawyers.show', $lawyer) }}" target="_blank">عرض</a>
+                                    <a class="btn-admin btn-muted" href="{{ route('lawyers.show', $lawyer) }}" target="_blank">عرض الآن</a>
                                 @endif
                                 <form method="POST" action="{{ route('admin.lawyers.destroy', $lawyer) }}" onsubmit="return confirm('نقل المحامي إلى السلة؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف</button></form>
                             @endif

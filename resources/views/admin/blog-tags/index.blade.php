@@ -26,6 +26,7 @@
                                 <form method="POST" action="{{ route('admin.blog-tags.force-delete', $tag->id) }}" onsubmit="return confirm('حذف نهائي؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف نهائي</button></form>
                             @else
                                 <a class="btn-admin" href="{{ route('admin.blog-tags.edit', $tag) }}">تعديل</a>
+                                <a class="btn-admin btn-muted" href="{{ route('blog.index', ['tag' => $tag->slug]) }}" target="_blank">عرض الآن</a>
                                 <form method="POST" action="{{ route('admin.blog-tags.destroy', $tag) }}" onsubmit="return confirm('نقل الوسم إلى السلة؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف</button></form>
                             @endif
                         </td>

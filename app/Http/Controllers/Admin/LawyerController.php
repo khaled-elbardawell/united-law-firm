@@ -79,10 +79,11 @@ class LawyerController extends Controller
     private function validated(Request $request, ?Lawyer $lawyer = null): array
     {
         $this->normalizeUrlInputs($request);
+        $this->normalizeSlugInput($request);
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'slug' => ['nullable', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:lawyers,slug,'.($lawyer?->id ?? 'NULL')],
             'position' => ['required', 'string', 'max:255'],
             'specialty' => ['nullable', 'string', 'max:255'],
             'bio' => ['required', 'string', 'max:1500'],
@@ -112,6 +113,7 @@ class LawyerController extends Controller
             'cv_file_upload.mimes' => 'ملف السيرة الذاتية يجب أن يكون PDF أو Word.',
             'cv_file_upload.max' => 'حجم ملف السيرة الذاتية يجب ألا يتجاوز 5MB.',
             '*.url' => 'يرجى إدخال رابط صحيح. يمكنك كتابة example.com وسنضيف https تلقائياً.',
+            'slug.regex' => 'الرابط يجب أن يحتوي أحرفاً إنجليزية صغيرة أو أرقاماً وشرطة (-) فقط، مثل ahmad-saleh.',
         ]);
 
         if ($request->hasFile('photo_file')) {
@@ -197,6 +199,13 @@ class LawyerController extends Controller
 
         if ($updates !== []) {
             $request->merge($updates);
+        }
+    }
+
+    private function normalizeSlugInput(Request $request): void
+    {
+        if ($request->has('slug')) {
+            $request->merge(['slug' => Str::lower(trim((string) $request->input('slug')))]);
         }
     }
 }

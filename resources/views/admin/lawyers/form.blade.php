@@ -17,7 +17,11 @@
 
             <div class="form-grid">
                 <div class="field"><label>الاسم</label><input name="name" value="{{ old('name', $lawyer->name) }}" required></div>
-                <div class="field"><label>رابط الصفحة</label><input name="slug" dir="ltr" value="{{ old('slug', $lawyer->slug) }}" placeholder="يولد تلقائياً إذا تركته فارغاً"></div>
+                <div class="field">
+                    <label>عنوان الرابط (Slug)</label>
+                    <input name="slug" dir="ltr" value="{{ old('slug', $lawyer->slug) }}" placeholder="ahmad-saleh">
+                    <small class="admin-muted-text">يؤثر على رابط صفحة المحامي في الموقع. استخدم أحرفاً إنجليزية صغيرة وأرقاماً وشرطة فقط. إذا تركته فارغاً سيتم توليده تلقائياً من اسم المحامي.</small>
+                </div>
                 <div class="field"><label>المنصب</label><input name="position" value="{{ old('position', $lawyer->position) }}" required></div>
                 <div class="field"><label>التخصص الرئيسي</label><input name="specialty" value="{{ old('specialty', $lawyer->specialty) }}"></div>
                 <div class="field"><label>رقم مزاولة / قيد النقابة</label><input name="bar_number" value="{{ old('bar_number', $lawyer->bar_number) }}"></div>

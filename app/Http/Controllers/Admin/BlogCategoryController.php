@@ -77,12 +77,16 @@ class BlogCategoryController extends Controller
 
     private function validated(Request $request, ?BlogCategory $category = null): array
     {
+        $this->normalizeSlugInput($request);
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'slug' => ['nullable', 'string', 'max:255', 'unique:blog_categories,slug,'.($category?->id ?? 'NULL')],
+            'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:blog_categories,slug,'.($category?->id ?? 'NULL')],
             'description' => ['nullable', 'string', 'max:1000'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_active' => ['nullable', 'boolean'],
+        ], [
+            'slug.regex' => 'الرابط يجب أن يحتوي أحرفاً إنجليزية صغيرة أو أرقاماً وشرطة (-) فقط، مثل legal-news.',
         ]);
 
         $data['slug'] = $data['slug'] ?: Str::slug($data['name']) ?: Str::random(8);
@@ -90,5 +94,12 @@ class BlogCategoryController extends Controller
         $data['is_active'] = $request->boolean('is_active');
 
         return $data;
+    }
+
+    private function normalizeSlugInput(Request $request): void
+    {
+        if ($request->has('slug')) {
+            $request->merge(['slug' => Str::lower(trim((string) $request->input('slug')))]);
+        }
     }
 }

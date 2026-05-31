@@ -606,6 +606,31 @@ a.stat-card:hover {
     font-weight: 800;
     color: var(--admin-navy);
 }
+
+.field:has(input[required]) > label::after,
+.field:has(select[required]) > label::after,
+.field:has(textarea[required]) > label::after,
+.field:has(input[aria-required="true"]) > label::after,
+.field:has(select[aria-required="true"]) > label::after,
+.field:has(textarea[aria-required="true"]) > label::after {
+    content: "*";
+    color: #d92d20;
+    font-size: 1rem;
+    font-weight: 900;
+    margin-inline-start: 5px;
+}
+
+.field:has(input[required]) > label,
+.field:has(select[required]) > label,
+.field:has(textarea[required]) > label,
+.field:has(input[aria-required="true"]) > label,
+.field:has(select[aria-required="true"]) > label,
+.field:has(textarea[aria-required="true"]) > label {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+
 .field input,
 .field select,
 .field textarea {

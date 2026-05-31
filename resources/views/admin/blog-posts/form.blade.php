@@ -5,7 +5,11 @@
             @if ($post->exists) @method('PUT') @endif
             <div class="form-grid">
                 <div class="field"><label>عنوان المقال</label><input name="title" value="{{ old('title', $post->title) }}" required></div>
-                <div class="field"><label>Slug</label><input name="slug" value="{{ old('slug', $post->slug) }}" placeholder="يولد تلقائيا إذا تركته فارغا"></div>
+                <div class="field">
+                    <label>عنوان الرابط (Slug)</label>
+                    <input name="slug" dir="ltr" value="{{ old('slug', $post->slug) }}" placeholder="contract-disputes">
+                    <small class="admin-muted-text">يؤثر على رابط المقال في الموقع. استخدم أحرفاً إنجليزية صغيرة وأرقاماً وشرطة فقط. إذا تركته فارغاً سيتم توليده تلقائياً من عنوان المقال.</small>
+                </div>
                 <div class="field"><label>التصنيف</label><select name="blog_category_id"><option value="">بدون تصنيف</option>@foreach ($categories as $category)<option value="{{ $category->id }}" @selected((string) old('blog_category_id', $post->blog_category_id) === (string) $category->id)>{{ $category->name }}</option>@endforeach</select></div>
                 <div class="field"><label>الحالة</label><select name="status">@foreach (\App\Models\BlogPost::STATUSES as $key => $label)<option value="{{ $key }}" @selected(old('status', $post->status ?: 'draft') === $key)>{{ $label }}</option>@endforeach</select></div>
                 <div class="field"><label>تاريخ النشر</label><input name="published_at" type="datetime-local" value="{{ old('published_at', $post->published_at?->format('Y-m-d\TH:i')) }}"></div>

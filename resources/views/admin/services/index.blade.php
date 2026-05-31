@@ -38,6 +38,9 @@
                                 <form method="POST" action="{{ route('admin.services.force-delete', $service->id) }}" onsubmit="return confirm('حذف نهائي؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف نهائي</button></form>
                             @else
                                 <a class="btn-admin" href="{{ route('admin.services.edit', $service) }}">تعديل</a>
+                                @if ($service->is_active)
+                                    <a class="btn-admin btn-muted" href="{{ route('services.show', $service->slug) }}" target="_blank">عرض الآن</a>
+                                @endif
                                 <form method="POST" action="{{ route('admin.services.destroy', $service) }}" onsubmit="return confirm('نقل الخدمة إلى السلة؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف</button></form>
                             @endif
                         </td>

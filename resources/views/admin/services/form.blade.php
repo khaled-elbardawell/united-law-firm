@@ -5,7 +5,11 @@
             @if ($service->exists) @method('PUT') @endif
             <div class="form-grid">
                 <div class="field"><label>العنوان</label><input name="title" value="{{ old('title', $service->title) }}" required></div>
-                <div class="field"><label>الرابط Slug</label><input name="slug" value="{{ old('slug', $service->slug) }}"></div>
+                <div class="field">
+                    <label>عنوان الرابط (Slug)</label>
+                    <input name="slug" dir="ltr" value="{{ old('slug', $service->slug) }}" placeholder="corporate-law">
+                    <small class="admin-muted-text">يؤثر على رابط الخدمة في الموقع. استخدم أحرفاً إنجليزية صغيرة وأرقاماً وشرطة فقط. إذا تركته فارغاً سيتم توليده تلقائياً من عنوان الخدمة.</small>
+                </div>
                 <div class="field">
                     <label>الأيقونة</label>
                     <input name="icon" value="{{ old('icon', $service->icon) }}" placeholder="fa-solid fa-scale-balanced">
