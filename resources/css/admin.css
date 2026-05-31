@@ -731,6 +731,65 @@ a.stat-card:hover {
     text-underline-offset: 3px;
 }
 
+.admin-progress {
+    width: 130px;
+    height: 10px;
+    border-radius: 999px;
+    background: #f2f4f7;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.admin-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--admin-gold-light), var(--admin-gold));
+}
+
+.attendance-days {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.attendance-day {
+    display: grid;
+    gap: 6px;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px;
+    font-weight: 800;
+}
+
+.attendance-day.is-present {
+    border-color: #abefc6;
+    background: #f6fef9;
+}
+
+.attendance-day.is-absent {
+    border-color: #fedf89;
+    background: #fffcf5;
+}
+
+.attendance-day select,
+.admin-table textarea,
+.admin-table select {
+    width: 100%;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px 10px;
+}
+
+.admin-table textarea {
+    min-height: 70px;
+    margin: 8px 0;
+    resize: vertical;
+}
+
 .settings-actions {
     position: sticky;
     bottom: 0;

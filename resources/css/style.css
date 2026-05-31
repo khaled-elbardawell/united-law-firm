@@ -299,6 +299,68 @@ img {
     font-size: 0.95rem;
 }
 
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 2px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    opacity: .85;
+}
+
+.nav-dropdown.active > button,
+.nav-dropdown:hover > button {
+    color: var(--accent-gold-light);
+    opacity: 1;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 30;
+    min-width: 230px;
+    display: grid;
+    gap: 4px;
+    padding: 10px;
+    border: 1px solid rgba(var(--accent-gold-rgb), .22);
+    border-radius: var(--radius-md);
+    background: rgba(7, 19, 31, .98);
+    box-shadow: var(--shadow-premium);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: var(--transition-fast);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+    border-radius: 8px;
+    color: #e8eef7;
+    padding: 10px 12px;
+    font-weight: 800;
+}
+
+.nav-dropdown-menu a:hover {
+    background: rgba(var(--accent-gold-rgb), .14);
+    color: var(--accent-gold-light);
+}
+
 .nav-links > a:not(.nav-ticket) {
     opacity: 0.85;
     position: relative;
@@ -2185,6 +2247,266 @@ img {
     gap: 8px;
 }
 
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.training-card,
+.training-panel,
+.training-info-box,
+.training-register-box,
+.training-empty {
+    background: var(--bg-paper);
+    border: 1.5px solid var(--border-gold-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.training-card {
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.training-card:hover {
+    border-color: rgba(var(--accent-gold-rgb), .46);
+    box-shadow: var(--shadow-premium);
+    transform: translateY(-6px);
+}
+
+.training-card-media {
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary-navy), #152c42);
+    color: var(--accent-gold-light);
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.training-card-media img,
+.training-show-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.training-card-media span {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    border-radius: var(--radius-pill);
+    background: var(--gold-gradient);
+    color: var(--primary-navy);
+    font-size: .82rem;
+    font-weight: 900;
+    padding: 6px 12px;
+}
+
+.training-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.training-card-body h2 {
+    color: var(--primary-navy);
+    font-size: 1.28rem;
+    line-height: 1.45;
+    margin-bottom: 10px;
+}
+
+.training-card-body p {
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+.training-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.training-meta span {
+    align-items: center;
+    background: #fffaf2;
+    border: 1px solid var(--border-gold-soft);
+    border-radius: var(--radius-pill);
+    color: var(--primary-navy);
+    display: inline-flex;
+    gap: 6px;
+    padding: 6px 10px;
+    font-size: .82rem;
+    font-weight: 800;
+}
+
+.training-meta i,
+.training-link i,
+.training-info-box i {
+    color: var(--accent-gold);
+}
+
+.training-link {
+    color: var(--primary-navy);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 900;
+    margin-top: 18px;
+}
+
+.training-empty {
+    grid-column: 1 / -1;
+    display: grid;
+    place-items: center;
+    gap: 12px;
+    min-height: 260px;
+    padding: 32px;
+    text-align: center;
+}
+
+.training-empty i {
+    color: var(--accent-gold);
+    font-size: 3rem;
+}
+
+.training-show-hero {
+    background: linear-gradient(135deg, rgba(7, 19, 31, .96), rgba(7, 19, 31, .84)), url(/assets/office.webp) center/cover no-repeat;
+    color: var(--text-light);
+    padding: calc(var(--header-height) + 54px) 0 72px;
+}
+
+.training-show-grid,
+.training-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: clamp(28px, 5vw, 58px);
+    align-items: start;
+}
+
+.training-show-grid {
+    align-items: center;
+}
+
+.training-show-grid h1 {
+    font-size: clamp(2.1rem, 4.5vw, 3.8rem);
+    line-height: 1.2;
+    margin: 12px 0 14px;
+}
+
+.training-show-grid p {
+    color: #d8e2ee;
+    max-width: 760px;
+    line-height: 1.95;
+}
+
+.training-show-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.training-show-card {
+    aspect-ratio: 4 / 3.4;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(var(--accent-gold-rgb), .34);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, .08);
+    color: var(--accent-gold-light);
+    font-size: 5rem;
+    overflow: hidden;
+}
+
+.training-detail-main,
+.training-detail-side {
+    display: grid;
+    gap: 18px;
+}
+
+.training-detail-side {
+    position: sticky;
+    top: calc(var(--header-height) + 22px);
+}
+
+.training-panel,
+.training-info-box,
+.training-register-box {
+    padding: clamp(22px, 3vw, 32px);
+}
+
+.training-panel h2,
+.training-info-box h3,
+.training-register-box h3 {
+    color: var(--primary-navy);
+    margin-bottom: 14px;
+}
+
+.training-panel p,
+.training-info-box p {
+    color: var(--text-muted);
+    line-height: 1.9;
+}
+
+.training-list {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+}
+
+.training-list li {
+    color: var(--text-main);
+    line-height: 1.8;
+    padding-inline-start: 24px;
+    position: relative;
+}
+
+.training-list li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: 0;
+    top: .72em;
+    border-radius: 50%;
+    background: var(--accent-gold);
+}
+
+.training-info-box p {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.training-register-box form {
+    display: grid;
+    gap: 10px;
+}
+
+.training-register-box input,
+.training-register-box textarea {
+    width: 100%;
+    border: 1px solid var(--border-gold-soft);
+    border-radius: var(--radius-md);
+    color: var(--primary-navy);
+    padding: 12px 13px;
+}
+
+.training-register-box textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
 /* ========================================================================
    8. Form Elements & Steps (Multi-Step Form Wizard)
    ======================================================================== */
@@ -3236,6 +3558,24 @@ iframe.map-box {
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
+    .nav-dropdown > button {
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, .06);
+        margin-top: 8px;
+    }
+
     .nav-links > a.active:not(.nav-ticket)::after {
         display: none;
     }
@@ -3302,7 +3642,9 @@ iframe.map-box {
     }
 
     .lawyer-profile-hero__grid,
-    .lawyer-cv-layout {
+    .lawyer-cv-layout,
+    .training-show-grid,
+    .training-detail-layout {
         grid-template-columns: 1fr;
     }
 
@@ -3311,6 +3653,14 @@ iframe.map-box {
     }
 
     .lawyer-cv-sidebar {
+        position: static;
+    }
+
+    .training-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .training-detail-side {
         position: static;
     }
 
@@ -3545,6 +3895,19 @@ iframe.map-box {
 
     .lawyer-profile-facts {
         grid-template-columns: 1fr;
+    }
+
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .training-show-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .training-show-actions .btn {
+        width: 100%;
     }
 
     .lawyer-cv-panel__head {

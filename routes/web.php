@@ -14,10 +14,12 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SiteSettingController;
+use App\Http\Controllers\Admin\TrainingCourseController as AdminTrainingCourseController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Website\ConsultationController;
 use App\Http\Controllers\Website\BlogController;
 use App\Http\Controllers\Website\ContactRequestController;
+use App\Http\Controllers\Website\TrainingCourseController;
 use App\Models\Faq;
 use App\Models\Client;
 use App\Models\Lawyer;
@@ -113,6 +115,11 @@ Route::get('/faq', function () {
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::get('/training-courses/new', [TrainingCourseController::class, 'current'])->name('training-courses.current');
+Route::get('/training-courses/previous', [TrainingCourseController::class, 'past'])->name('training-courses.past');
+Route::get('/training-courses/{course}', [TrainingCourseController::class, 'show'])->name('training-courses.show');
+Route::post('/training-courses/{course}/register', [TrainingCourseController::class, 'register'])->name('training-courses.register');
+
 Route::post('/contact', [ContactRequestController::class, 'store'])->name('contact.store');
 Route::post('/ticket', [ConsultationController::class, 'store'])->name('ticket.store');
 
@@ -135,6 +142,11 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::patch('clients/{client}/restore', [ClientController::class, 'restore'])->name('clients.restore');
     Route::delete('clients/{client}/force-delete', [ClientController::class, 'forceDelete'])->name('clients.force-delete');
     Route::resource('clients', ClientController::class)->except('show');
+    Route::patch('training-courses/{course}/restore', [AdminTrainingCourseController::class, 'restore'])->name('training-courses.restore');
+    Route::delete('training-courses/{course}/force-delete', [AdminTrainingCourseController::class, 'forceDelete'])->name('training-courses.force-delete');
+    Route::put('training-courses/{training_course}/registrations/{registration}', [AdminTrainingCourseController::class, 'updateRegistration'])->name('training-courses.registrations.update');
+    Route::put('training-courses/{training_course}/registrations/{registration}/attendance', [AdminTrainingCourseController::class, 'updateAttendance'])->name('training-courses.registrations.attendance');
+    Route::resource('training-courses', AdminTrainingCourseController::class);
     Route::patch('services/{service}/restore', [ServiceController::class, 'restore'])->name('services.restore');
     Route::delete('services/{service}/force-delete', [ServiceController::class, 'forceDelete'])->name('services.force-delete');
     Route::resource('services', ServiceController::class)->except('show');

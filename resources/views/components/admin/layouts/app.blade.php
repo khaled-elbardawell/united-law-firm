@@ -69,6 +69,9 @@
                 <a class="{{ request()->routeIs('admin.clients.*') ? 'active' : '' }}"
                     href="{{ route('admin.clients.index') }}">الجهات الموثوقة <span><i
                             class="fa-solid fa-handshake"></i></span></a>
+                <a class="{{ request()->routeIs('admin.training-courses.*') ? 'active' : '' }}"
+                    href="{{ route('admin.training-courses.index') }}">الدورات التدريبية <span><i
+                            class="fa-solid fa-chalkboard-user"></i></span></a>
                 <a class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}"
                     href="{{ route('admin.users.index') }}">المستخدمون <span><i
                             class="fa-solid fa-users-gear"></i></span></a>
