@@ -19,7 +19,7 @@
 
             <div class="lawyers-grid">
                 @forelse ($lawyers as $lawyer)
-                    <article class="lawyer-card">
+                    <a class="lawyer-card" href="{{ route('lawyers.show', $lawyer) }}" aria-label="عرض السيرة المهنية للمحامي {{ $lawyer->name }}">
                         <div class="lawyer-top">
                             @if ($lawyer->photo)
                                 <img src="{{ str_starts_with($lawyer->photo, 'http') ? $lawyer->photo : asset($lawyer->photo) }}" alt="{{ $lawyer->name }}">
@@ -38,8 +38,9 @@
                                     @endforeach
                                 </div>
                             @endif
+                            <span class="lawyer-card-link">عرض السيرة المهنية <i class="fa-solid fa-arrow-left"></i></span>
                         </div>
-                    </article>
+                    </a>
                 @empty
                     <article class="lawyer-card">
                         <div class="lawyer-body">

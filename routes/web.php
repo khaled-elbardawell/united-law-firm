@@ -80,6 +80,20 @@ Route::get('/lawyers', function () {
     ]);
 })->name('lawyers');
 
+Route::get('/lawyers/{lawyer}', function (Lawyer $lawyer) {
+    abort_unless($lawyer->is_active, 404);
+
+    $relatedLawyers = Schema::hasTable('lawyers')
+        ? Lawyer::where('is_active', true)
+            ->whereKeyNot($lawyer->getKey())
+            ->orderBy('sort_order')
+            ->take(3)
+            ->get()
+        : collect();
+
+    return view('website.lawyer-show', compact('lawyer', 'relatedLawyers'));
+})->name('lawyers.show');
+
 Route::get('/ticket', function () {
     return view('website.ticket', [
         'services' => Schema::hasTable('services')

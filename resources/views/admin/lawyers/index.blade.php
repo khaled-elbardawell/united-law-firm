@@ -18,7 +18,7 @@
                 <tbody>
                 @forelse ($lawyers as $lawyer)
                     <tr class="{{ $lawyer->trashed() ? 'is-trashed' : '' }}">
-                        <td><strong>{{ $lawyer->name }}</strong><br><small>{{ $lawyer->bio }}</small></td>
+                        <td><strong>{{ $lawyer->name }}</strong><br><small>{{ \Illuminate\Support\Str::limit($lawyer->bio, 120) }}</small></td>
                         <td>{{ $lawyer->position }}<br><small>{{ $lawyer->specialty }}</small></td>
                         <td>{{ implode('، ', $lawyer->tags ?? []) }}</td>
                         <td><x-admin.partials.active :active="$lawyer->is_active" /></td>
@@ -28,6 +28,9 @@
                                 <form method="POST" action="{{ route('admin.lawyers.force-delete', $lawyer->id) }}" onsubmit="return confirm('حذف نهائي؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف نهائي</button></form>
                             @else
                                 <a class="btn-admin" href="{{ route('admin.lawyers.edit', $lawyer) }}">تعديل</a>
+                                @if ($lawyer->is_active)
+                                    <a class="btn-admin btn-muted" href="{{ route('lawyers.show', $lawyer) }}" target="_blank">عرض</a>
+                                @endif
                                 <form method="POST" action="{{ route('admin.lawyers.destroy', $lawyer) }}" onsubmit="return confirm('نقل المحامي إلى السلة؟')">@csrf @method('DELETE')<button class="btn-admin btn-danger" type="submit">حذف</button></form>
                             @endif
                         </td>
