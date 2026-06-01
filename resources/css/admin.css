@@ -74,9 +74,9 @@ textarea {
     width: 58px;
     height: 46px;
     object-fit: contain;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 8px;
-    padding: 4px;
+    /* padding: 4px; */
 }
 
 .admin-brand strong {
@@ -807,7 +807,11 @@ a.stat-card:hover {
     display: block;
     height: 100%;
     border-radius: inherit;
-    background: linear-gradient(135deg, var(--admin-gold-light), var(--admin-gold));
+    background: linear-gradient(
+        135deg,
+        var(--admin-gold-light),
+        var(--admin-gold)
+    );
 }
 
 .attendance-days {

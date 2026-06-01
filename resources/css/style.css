@@ -259,9 +259,9 @@ img {
     width: 76px;
     height: 58px;
     object-fit: contain;
-    background-color: var(--bg-paper);
+    /* background-color: var(--bg-paper); */
     border-radius: var(--radius-sm);
-    padding: 4px;
+    /* padding: 4px; */
     border: 1.5px solid transparent;
     transition: var(--transition-smooth);
 }

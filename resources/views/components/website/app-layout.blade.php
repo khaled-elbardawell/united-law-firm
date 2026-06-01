@@ -4,7 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('assets/logo.png') }}" sizes="32x32" />
+    @php
+        $logo = \App\Models\SiteSetting::getValue('site_logo', 'assets/logo.png');
+        $logoUrl = str_starts_with($logo, 'http') ? $logo : asset($logo);
+    @endphp
+
+    <link rel="icon" href="{{ $logoUrl }}" sizes="32x32" />
     @php
         $routeKey = request()->route()?->getName();
         $seo = null;
@@ -39,8 +44,8 @@
         <meta name="author" content="{{ $seoAuthor }}">
     @endif
 
-  
-     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     @vite(['resources/css/app.css', 'resources/css/style.css'])
