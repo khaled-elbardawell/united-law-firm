@@ -939,7 +939,7 @@ a.stat-card:hover {
         width: 54px;
         height: 42px;
         object-fit: contain;
-        background: #fff;
+        /* background: #fff; */
         border-radius: 8px;
         padding: 4px;
     }
