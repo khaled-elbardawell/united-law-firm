@@ -10,14 +10,14 @@ class Lawyer extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const TEAM_FOUNDERS = 'founders';
     public const TEAM_ADMINISTRATION = 'administration';
-    public const TEAM_CONSULTANTS = 'consultants';
     public const TEAM_LAWYERS = 'lawyers';
     public const TEAM_TRAINEES = 'trainees';
 
     public const TEAM_CATEGORIES = [
+        self::TEAM_FOUNDERS => 'فريق المؤسسين',
         self::TEAM_ADMINISTRATION => 'فريق الإداريين',
-        self::TEAM_CONSULTANTS => 'فريق المستشارين',
         self::TEAM_LAWYERS => 'فريق المحامين',
         self::TEAM_TRAINEES => 'فريق المتدربين',
     ];

@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $categories = ['administration', 'consultants', 'lawyers', 'trainees'];
+        $categories = ['founders', 'administration', 'lawyers', 'trainees'];
 
         Schema::table('lawyers', function (Blueprint $table) use ($categories) {
             $table->enum('team_category', $categories)
