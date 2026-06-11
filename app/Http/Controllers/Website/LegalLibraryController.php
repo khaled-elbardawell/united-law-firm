@@ -23,22 +23,35 @@ class LegalLibraryController extends Controller
         return view('website.legal-library.index', compact('categories'));
     }
 
-    public function category(string $category)
+    public function category(Request $request, string $category)
     {
         $categoryKey = $this->resolveCategory($category);
         abort_unless($categoryKey, 404);
 
+        $data = $request->validate([
+            'q' => ['nullable', 'string', 'max:120'],
+        ]);
+
+        $term = trim((string) ($data['q'] ?? ''));
+
         $items = LegalLibraryItem::published()
             ->where('category', $categoryKey)
+            ->when($term !== '', fn ($query) => $query->where(function ($query) use ($term) {
+                $query->where('title', 'like', '%'.$term.'%')
+                    ->orWhere('short_description', 'like', '%'.$term.'%')
+                    ->orWhere('content', 'like', '%'.$term.'%');
+            }))
             ->orderBy('sort_order')
             ->latest('published_at')
-            ->paginate(9);
+            ->paginate(9)
+            ->withQueryString();
 
         return view('website.legal-library.category', [
             'items' => $items,
             'category' => $categoryKey,
             'categoryLabel' => LegalLibraryItem::CATEGORIES[$categoryKey],
             'categorySlug' => $category,
+            'term' => $term,
         ]);
     }
 

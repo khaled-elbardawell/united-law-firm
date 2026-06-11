@@ -16,6 +16,15 @@
 
     <section class="section section-soft">
         <div class="container">
+            <form class="legal-search-box legal-search-box--with-reset" method="GET" action="{{ route('legal-library.category', $categorySlug) }}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input name="q" value="{{ $term }}" placeholder="ابحث داخل {{ $categoryLabel }}...">
+                <button class="btn btn-gold" type="submit">بحث</button>
+                @if ($term)
+                    <a class="btn btn-outline-dark" href="{{ route('legal-library.category', $categorySlug) }}">مسح</a>
+                @endif
+            </form>
+
             <div class="legal-list">
                 @forelse ($items as $item)
                     <article class="legal-item-card">

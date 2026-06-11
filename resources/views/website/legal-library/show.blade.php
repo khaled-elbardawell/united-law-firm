@@ -21,6 +21,12 @@
 
     <section class="section section-soft">
         <div class="container legal-detail-grid">
+            <form class="legal-search-box" method="GET" action="{{ route('legal-library.search') }}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input name="q" value="{{ request('q') }}" placeholder="ابحث داخل المكتبة القانونية...">
+                <button class="btn btn-gold" type="submit">بحث</button>
+            </form>
+
             <article class="legal-detail-card">
                 <div class="legal-meta">
                     <span>{{ $item->category_label }}</span>

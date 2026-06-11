@@ -373,6 +373,10 @@ img {
     box-shadow: var(--shadow-soft);
 }
 
+.legal-search-box--with-reset {
+    grid-template-columns: auto 1fr auto auto;
+}
+
 .legal-search-box i {
     color: var(--accent-gold);
     font-size: 20px;
