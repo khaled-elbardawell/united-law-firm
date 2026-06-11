@@ -19,6 +19,9 @@ class LawyerController extends Controller
                     ->orWhere('specialty', 'like', '%'.$request->q.'%')
                     ->orWhere('bar_number', 'like', '%'.$request->q.'%');
             }))
+            ->when($request->filled('team_category'), fn ($query) => $request->team_category === 'unclassified'
+                ? $query->whereNull('team_category')
+                : $query->where('team_category', $request->team_category))
             ->when($request->filled('active'), fn ($query) => $query->where('is_active', $request->active))
             ->orderBy('sort_order')
             ->latest()
@@ -84,6 +87,7 @@ class LawyerController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:lawyers,slug,'.($lawyer?->id ?? 'NULL')],
+            'team_category' => ['nullable', 'in:'.implode(',', array_keys(Lawyer::TEAM_CATEGORIES))],
             'position' => ['required', 'string', 'max:255'],
             'specialty' => ['nullable', 'string', 'max:255'],
             'bio' => ['required', 'string', 'max:1500'],

@@ -10,9 +10,22 @@ class Lawyer extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const TEAM_ADMINISTRATION = 'administration';
+    public const TEAM_CONSULTANTS = 'consultants';
+    public const TEAM_LAWYERS = 'lawyers';
+    public const TEAM_TRAINEES = 'trainees';
+
+    public const TEAM_CATEGORIES = [
+        self::TEAM_ADMINISTRATION => 'فريق الإداريين',
+        self::TEAM_CONSULTANTS => 'فريق المستشارين',
+        self::TEAM_LAWYERS => 'فريق المحامين',
+        self::TEAM_TRAINEES => 'فريق المتدربين',
+    ];
+
     protected $fillable = [
         'name',
         'slug',
+        'team_category',
         'position',
         'specialty',
         'bio',
@@ -55,5 +68,10 @@ class Lawyer extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function getTeamCategoryLabelAttribute(): ?string
+    {
+        return self::TEAM_CATEGORIES[$this->team_category] ?? null;
     }
 }

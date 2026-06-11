@@ -23,6 +23,15 @@
                     <small class="admin-muted-text">يؤثر على رابط صفحة المحامي في الموقع. استخدم أحرفاً إنجليزية صغيرة وأرقاماً وشرطة فقط. إذا تركته فارغاً سيتم توليده تلقائياً من اسم المحامي.</small>
                 </div>
                 <div class="field"><label>المنصب</label><input name="position" value="{{ old('position', $lawyer->position) }}" required></div>
+                <div class="field">
+                    <label>تصنيف الفريق</label>
+                    <select name="team_category">
+                        <option value="">غير مصنف</option>
+                        @foreach (\App\Models\Lawyer::TEAM_CATEGORIES as $key => $label)
+                            <option value="{{ $key }}" @selected(old('team_category', $lawyer->team_category) === $key)>{{ $label }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="field"><label>التخصص الرئيسي</label><input name="specialty" value="{{ old('specialty', $lawyer->specialty) }}"></div>
                 <div class="field"><label>رقم مزاولة / قيد النقابة</label><input name="bar_number" value="{{ old('bar_number', $lawyer->bar_number) }}"></div>
                 <div class="field"><label>سنوات الخبرة</label><input name="years_experience" type="number" min="0" max="80" value="{{ old('years_experience', $lawyer->years_experience) }}"></div>

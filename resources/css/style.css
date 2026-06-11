@@ -2011,6 +2011,27 @@ img {
 }
 
 /* Lawyer Cards */
+.lawyer-team-section {
+    margin-top: 42px;
+}
+
+.lawyer-team-section:first-of-type {
+    margin-top: 0;
+}
+
+.lawyer-team-head {
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border-gold-soft);
+    padding-bottom: 12px;
+}
+
+.lawyer-team-head h3 {
+    color: var(--primary-navy);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 900;
+    margin: 0;
+}
+
 .lawyers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

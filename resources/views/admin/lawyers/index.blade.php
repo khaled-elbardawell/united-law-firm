@@ -3,6 +3,7 @@
     <section class="admin-card">
         <form method="GET" class="admin-filters">
             <input name="q" value="{{ request('q') }}" placeholder="بحث بالاسم أو التخصص...">
+            <select name="team_category"><option value="">كل التصنيفات</option>@foreach (\App\Models\Lawyer::TEAM_CATEGORIES as $key => $label)<option value="{{ $key }}" @selected(request('team_category') === $key)>{{ $label }}</option>@endforeach<option value="unclassified" @selected(request('team_category') === 'unclassified')>غير مصنف</option></select>
             <select name="active"><option value="">كل الحالات</option><option value="1" @selected(request('active') === '1')>فعّال</option><option value="0" @selected(request('active') === '0')>مخفي</option></select>
             <input type="hidden" name="view" value="{{ request('view') }}">
             <button class="btn-admin btn-gold" type="submit">فلترة</button>
@@ -14,12 +15,13 @@
         </div>
         <div class="admin-table-wrap">
             <table class="admin-table">
-                <thead><tr><th>الاسم</th><th>المنصب</th><th>الوسوم</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+                <thead><tr><th>الاسم</th><th>المنصب</th><th>تصنيف الفريق</th><th>الوسوم</th><th>الحالة</th><th>إجراءات</th></tr></thead>
                 <tbody>
                 @forelse ($lawyers as $lawyer)
                     <tr class="{{ $lawyer->trashed() ? 'is-trashed' : '' }}">
                         <td><strong>{{ $lawyer->name }}</strong><br><small>{{ \Illuminate\Support\Str::limit($lawyer->bio, 120) }}</small></td>
                         <td>{{ $lawyer->position }}<br><small>{{ $lawyer->specialty }}</small></td>
+                        <td>{{ $lawyer->team_category_label ?: 'غير مصنف' }}</td>
                         <td>{{ implode('، ', $lawyer->tags ?? []) }}</td>
                         <td><x-admin.partials.active :active="$lawyer->is_active" /></td>
                         <td class="actions-row">
@@ -36,7 +38,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="5">لا توجد نتائج.</td></tr>
+                    <tr><td colspan="6">لا توجد نتائج.</td></tr>
                 @endforelse
                 </tbody>
             </table>
