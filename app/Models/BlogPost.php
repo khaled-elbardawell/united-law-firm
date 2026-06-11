@@ -20,6 +20,7 @@ class BlogPost extends Model
 
     protected $fillable = [
         'user_id',
+        'author_name',
         'blog_category_id',
         'title',
         'slug',
@@ -48,6 +49,11 @@ class BlogPost extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getDisplayAuthorNameAttribute(): string
+    {
+        return $this->author_name ?: ($this->author?->name ?: 'إدارة الموقع');
     }
 
     public function category(): BelongsTo

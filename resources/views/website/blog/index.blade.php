@@ -78,7 +78,7 @@
                         <div class="blog-card-footer">
                             <div class="blog-author">
                                 <i class="fa-solid fa-user-pen"></i>
-                                <span>{{ $featuredPost->author?->name ?: 'إدارة الموقع' }}</span>
+                                <span>{{ $featuredPost->display_author_name }}</span>
                             </div>
                             <a class="blog-read-link" href="{{ route('blog.show', $featuredPost->slug) }}">قراءة المقال <i class="fa-solid fa-arrow-left"></i></a>
                         </div>
@@ -106,7 +106,7 @@
                             <div class="blog-card-footer">
                                 <div class="blog-author">
                                     <i class="fa-solid fa-user-pen"></i>
-                                    <span>{{ $post->author?->name ?: 'إدارة الموقع' }}</span>
+                                    <span>{{ $post->display_author_name }}</span>
                                 </div>
                                 <a class="blog-read-link" href="{{ route('blog.show', $post->slug) }}"><i class="fa-solid fa-arrow-left"></i></a>
                             </div>

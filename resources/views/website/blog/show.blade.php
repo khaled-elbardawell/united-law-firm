@@ -1,6 +1,8 @@
 @php
     $postUrl = route('blog.show', $post->slug);
     $shareTitle = $post->title;
+    $authorName = $post->display_author_name;
+    $seoAuthorName = $post->author_name ?: ($post->author?->name ?: \App\Models\SiteSetting::getValue('seo_author', config('app.name')));
 @endphp
 
 <x-website.app-layout>
@@ -8,7 +10,7 @@
     <x-slot name="head">
         <meta name="description" content="{{ $post->meta_description ?: ($post->excerpt ?: str($post->content)->stripTags()->limit(160)) }}">
         <meta name="keywords" content="{{ $post->meta_keywords }}">
-        <meta name="author" content="{{ $post->author?->name ?: \App\Models\SiteSetting::getValue('seo_author', config('app.name')) }}">
+        <meta name="author" content="{{ $seoAuthorName }}">
         <meta name="robots" content="{{ $post->is_indexable ? 'index,follow' : 'noindex,nofollow' }}">
         <link rel="canonical" href="{{ $postUrl }}">
         <meta property="og:title" content="{{ $post->meta_title ?: $post->title }}">
@@ -44,7 +46,7 @@
                     </a>
 
                     <div class="blog-post-info">
-                        <span><i class="fa-solid fa-user-pen"></i> {{ $post->author?->name ?: 'إدارة الموقع' }}</span>
+                        <span><i class="fa-solid fa-user-pen"></i> {{ $authorName }}</span>
                         <span><i class="fa-solid fa-calendar-days"></i> {{ $post->published_at?->format('Y-m-d') }}</span>
                         <span><i class="fa-solid fa-eye"></i> {{ number_format($post->views_count) }} قراءة</span>
                         @if ($post->category)<span><i class="fa-solid fa-folder"></i> {{ $post->category->name }}</span>@endif

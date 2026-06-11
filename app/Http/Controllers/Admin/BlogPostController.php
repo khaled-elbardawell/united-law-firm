@@ -105,6 +105,7 @@ class BlogPostController extends Controller
 
         $data = $request->validate([
             'blog_category_id' => ['nullable', 'exists:blog_categories,id'],
+            'author_name' => ['nullable', 'string', 'max:255'],
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/', 'unique:blog_posts,slug,'.($post?->id ?? 'NULL')],
             'excerpt' => ['nullable', 'string', 'max:1000'],

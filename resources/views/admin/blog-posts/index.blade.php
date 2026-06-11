@@ -24,7 +24,7 @@
                         <td><span class="badge {{ $post->status === 'published' ? 'active' : 'inactive' }}">{{ \App\Models\BlogPost::STATUSES[$post->status] ?? $post->status }}</span></td>
                         <td>{{ number_format($post->views_count) }}</td>
                         <td>{{ $post->published_at?->format('Y-m-d') ?: '-' }}</td>
-                        <td>{{ $post->author?->name ?: '-' }}</td>
+                        <td>{{ $post->display_author_name }}</td>
                         <td class="actions-row">
                             @if ($post->trashed())
                                 <form method="POST" action="{{ route('admin.blog-posts.restore', $post->id) }}">@csrf @method('PATCH')<button class="btn-admin btn-gold" type="submit">استرجاع</button></form>

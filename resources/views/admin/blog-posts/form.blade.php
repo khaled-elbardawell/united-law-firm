@@ -5,6 +5,7 @@
             @if ($post->exists) @method('PUT') @endif
             <div class="form-grid">
                 <div class="field"><label>عنوان المقال</label><input name="title" value="{{ old('title', $post->title) }}" required></div>
+                <div class="field"><label>اسم الكاتب</label><input name="author_name" value="{{ old('author_name', $post->author_name) }}" placeholder="مثال: المحامي أحمد علي"></div>
                 <div class="field">
                     <label>عنوان الرابط (Slug)</label>
                     <input name="slug" dir="ltr" value="{{ old('slug', $post->slug) }}" placeholder="contract-disputes">
@@ -57,7 +58,8 @@
             height: 520,
             menubar: true,
             plugins: 'advlist autolink lists link image media table code fullscreen preview directionality searchreplace wordcount',
-            toolbar: 'undo redo | blocks | bold italic underline | alignright aligncenter alignleft alignjustify | bullist numlist | link image media table | ltr rtl | preview code fullscreen',
+            toolbar: 'undo redo | blocks fontfamily | bold italic underline | alignright aligncenter alignleft alignjustify | bullist numlist | link image media table | ltr rtl | preview code fullscreen',
+            font_family_formats: 'Cairo=Cairo,Tahoma,Arial,sans-serif;Tajawal=Tajawal,Tahoma,Arial,sans-serif;Arial=arial,helvetica,sans-serif;Tahoma=tahoma,arial,helvetica,sans-serif;Times New Roman=times new roman,times,serif',
             images_upload_handler: (blobInfo) => new Promise((resolve) => {
                 const reader = new FileReader();
                 reader.onload = () => resolve(reader.result);
@@ -66,7 +68,7 @@
             automatic_uploads: true,
             image_title: true,
             file_picker_types: 'image',
-            content_style: 'body{font-family:Tajawal,Tahoma,Arial,sans-serif;line-height:1.9;font-size:16px;} img{max-width:100%;height:auto;}'
+            content_style: '@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"); body{font-family:Cairo,Tahoma,Arial,sans-serif;line-height:1.9;font-size:16px;} img{max-width:100%;height:auto;}'
         });
     </script>
 </x-admin.layouts.app>
